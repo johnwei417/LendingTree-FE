@@ -1,5 +1,6 @@
 <h1>Hi {{currentUser.username}}!</h1>
 <p>You're logged in as {{currentUser.role[0]}}!</p>
+<div *ngIf="currentUser.role[0] == 'ROLE_ADMIN'">
 <h3>All registered users:</h3>
 <ul>
     <li *ngFor="let user of users">
@@ -7,4 +8,5 @@
         - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
 </ul>
+</div>
 <p><a [routerLink]="['/login']">Logout</a></p>
