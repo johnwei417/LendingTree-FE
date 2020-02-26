@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { User } from '../_models';
 import { UserService } from '../_services';
@@ -13,19 +14,18 @@ export class HomeComponent implements OnInit {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
+
     ngOnInit() {
-        this.loadAllUsers();
+        this.getUsers();
     }
 
     deleteUser(id: number) {
         this.userService.delete(id).pipe(first()).subscribe(() => { 
-            this.loadAllUsers() 
+            this.getUsers() 
         });
     }
 
-    private loadAllUsers() {
-        this.userService.getAll().pipe(first()).subscribe(users => { 
-            this.users = users; 
-        });
+    getUsers(){
+       this.userService.getAll().subscribe(data => this.users = data['result'])
     }
 }
