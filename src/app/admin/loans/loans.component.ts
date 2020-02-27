@@ -1,26 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { Loan } from '../../_models';
-import { LoanService } from '../../_services'; 
-
-import { AlertService, AuthenticationService } from '../../_services';
+import {Component, OnInit} from '@angular/core';
+import {Loan} from '../../_models';
+import {LoanService} from '../../_services';
 
 
 @Component({templateUrl: 'loans.component.html'})
-export class LoanManageComponent implements OnInit{
-    constructor(private loanService: LoanService) {
+export class LoanManageComponent implements OnInit {
+  loans: Loan[];
 
-    }
-    loans: Loan[];
+  constructor(private loanService: LoanService) {
 
-    ngOnInit() {
-        this.getLoans();
-    }
+  }
 
-    getLoans(){
-        this.loanService.getAll().subscribe(data => this.loans = data['result'])
-     }
+  ngOnInit() {
+    this.getLoans();
+  }
+
+  getLoans() {
+    this.loanService.getAll().subscribe(data => this.loans = data['result']);
+  }
 
 }
