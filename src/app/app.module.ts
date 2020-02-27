@@ -18,6 +18,7 @@ import {RegisterComponent} from './register';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer';
 import {NavigationComponent} from './navigation/navigation.component';
+import {NavSideComponent} from './nav-side/nav-side.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {NavigationComponent} from './navigation/navigation.component';
     RegisterComponent,
     LoanManageComponent,
     CustomerLoanComponent,
-    NavigationComponent
+    NavigationComponent,
+    NavSideComponent
   ],
   providers: [
     AuthGuard,
