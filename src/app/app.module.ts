@@ -15,6 +15,7 @@ import {HomeComponent} from './home';
 import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
 import {LoanManageComponent} from './admin/loans';
+import {CustomerLoanComponent} from './customer';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {LoanManageComponent} from './admin/loans';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    LoanManageComponent
+    LoanManageComponent,
+    CustomerLoanComponent
   ],
   providers: [
     AuthGuard,
