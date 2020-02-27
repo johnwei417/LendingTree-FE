@@ -7,10 +7,10 @@ import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthenticationService {
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient) {
   }
-
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();

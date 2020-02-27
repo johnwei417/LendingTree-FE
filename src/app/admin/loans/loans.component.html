@@ -17,7 +17,9 @@
     <td>{{loan.loanStatusName}}</td>
     <td>{{loan.amount}}</td>
     <td>{{loan.departmentName}}</td>
-    <button *ngIf="loan.departmentName == 'ADMIN'" (click)="assign(loan.id)" class="btn btn-primary btn-block btn-lg">Assign To Pickup</button>
+    <button (click)="assign(loan.id)" *ngIf="loan.departmentName == 'ADMIN'" class="btn btn-primary btn-block btn-lg">
+      Assign To Pickup
+    </button>
   </tr>
   </tbody>
 </table>
