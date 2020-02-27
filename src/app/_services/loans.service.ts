@@ -13,4 +13,8 @@ export class LoanService {
     return this.http.get<Loan[]>(`${environment.apiUrl}/admin/loanviewer`);
   }
 
+  assignToPick(loan: Loan) {
+    return this.http.put<Loan>(`${environment.apiUrl}/admin/loanviewer`, loan);
+  }
+
 }

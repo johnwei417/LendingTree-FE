@@ -1,6 +1,23 @@
 <h3>Loan List</h3>
-<ul>
-  <li *ngFor="let loan of loans">
-    {{loan.id}} {{loan.username}} | {{loan.loanTypeName}} ｜ {{loan.loanStatusName}}
-  </li>
-</ul>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Username</th>
+    <th>Loan Type</th>
+    <th>Loan Status</th>
+    <th>Loan Amount</th>
+    <th>Current Department</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let loan of loans">
+    <td>{{loan.username}} </td>
+    <td>{{loan.loanTypeName}} </td>
+    <td>{{loan.loanStatusName}}</td>
+    <td>{{loan.amount}}</td>
+    <td>{{loan.departmentName}}</td>
+    <button (click)="assign(loan.id)" class="btn btn-primary btn-block btn-lg">Assign To Pickup</button>
+  </tr>
+  </tbody>
+</table>
