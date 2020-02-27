@@ -1,14 +1,64 @@
 <h1>Hi {{currentUser.username}}!</h1>
 
 <div *ngIf="currentUser.role[0] == 'ROLE_ADMIN'">
-<p>You're logged in as {{currentUser.role[0]}}!</p>
-<h3>All registered users:</h3>
-<ul>
+<!-- <p>You're logged in as {{currentUser.role[0]}}!</p> -->
+<!-- <h3>All registered users:</h3> -->
+<!-- <ul>
     <li *ngFor="let user of users">
         {{user.id}}  -- {{user.user.username}} |  salary: {{user.salary}}
         - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
-</ul>
+</ul> -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="dbox dbox--color-1">
+				<div class="dbox__icon">
+					<i class="glyphicon glyphicon-cloud"></i>
+				</div>
+				<div class="dbox__body">
+					<span class="dbox__count">2</span>
+					<span class="dbox__title">Loans</span>
+				</div>
+				
+				<div class="dbox__action">
+					<button class="dbox__action__btn">More Info</button>
+				</div>				
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="dbox dbox--color-2">
+				<div class="dbox__icon">
+					<i class="glyphicon glyphicon-download"></i>
+				</div>
+				<div class="dbox__body">
+					<span class="dbox__count">3</span>
+					<span class="dbox__title">Employee</span>
+				</div>
+				
+				<div class="dbox__action">
+					<button class="dbox__action__btn">More Info</button>
+				</div>				
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="dbox dbox--color-3">
+				<div class="dbox__icon">
+					<i class="glyphicon glyphicon-heart"></i>
+				</div>
+				<div class="dbox__body">
+					<span class="dbox__count">4</span>
+					<span class="dbox__title">Customer</span>
+				</div>
+				
+				<div class="dbox__action">
+					<button class="dbox__action__btn">More Info</button>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+
 </div>
 
 <div *ngIf="currentUser.role[0] == 'ROLE_CUSTOMER'">
