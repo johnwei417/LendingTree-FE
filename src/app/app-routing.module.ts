@@ -12,8 +12,8 @@ import {CustomerLoanComponent} from './customer';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'admin/loans', component: LoanManageComponent},
-  {path: 'customer/loan', component: CustomerLoanComponent},
+  {path: 'admin/loans', component: LoanManageComponent, canActivate: [AuthGuard]},
+  {path: 'customer/loan', component: CustomerLoanComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
 
   // otherwise redirect to home
