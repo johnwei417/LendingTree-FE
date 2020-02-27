@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 import {AppComponent} from './app.component';
@@ -16,12 +17,14 @@ import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer';
+import {NavigationComponent} from './navigation/navigation.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
     routing
   ],
   declarations: [
@@ -31,7 +34,8 @@ import {CustomerLoanComponent} from './customer';
     LoginComponent,
     RegisterComponent,
     LoanManageComponent,
-    CustomerLoanComponent
+    CustomerLoanComponent,
+    NavigationComponent
   ],
   providers: [
     AuthGuard,
