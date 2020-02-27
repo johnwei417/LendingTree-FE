@@ -6,7 +6,7 @@ import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
 import {AuthGuard} from './_guards';
 import {LoanManageComponent} from './admin/loans';
-import {CustomerLoanComponent} from './customer';
+import {CustomerLoanComponent} from './customer/viewLoans';
 
 
 const appRoutes: Routes = [

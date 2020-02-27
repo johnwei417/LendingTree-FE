@@ -21,4 +21,8 @@ export class LoanService {
     return this.http.post<User>(`${environment.apiUrl}/customer/loans/list`, user);
   }
 
+  addNewLoan(loan: Loan) {
+    return this.http.put<Loan>(`${environment.apiUrl}/customer/loans/add`, loan);
+  }
+
 }

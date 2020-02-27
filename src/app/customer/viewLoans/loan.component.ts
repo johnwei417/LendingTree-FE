@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Loan, User} from '../_models';
-import {LoanService, UserService} from '../_services';
+import {Loan, User} from '../../_models';
+import {LoanService, UserService} from '../../_services';
 
 
 @Component({templateUrl: 'loan.component.html'})

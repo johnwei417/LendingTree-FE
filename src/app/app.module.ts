@@ -16,7 +16,7 @@ import {HomeComponent} from './home';
 import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
 import {LoanManageComponent} from './admin/loans';
-import {CustomerLoanComponent} from './customer';
+import {CustomerLoanComponent} from './customer/viewLoans';
 import {NavigationComponent} from './navigation/navigation.component';
 import {NavSideComponent} from './nav-side/nav-side.component';
 
