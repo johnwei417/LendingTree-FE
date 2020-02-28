@@ -8,7 +8,7 @@ import {AuthGuard} from './_guards';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer/viewLoans';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
-import {ViewEmployeeComponent} from './admin/employee/viewEmployee.component';
+import {ViewEmployeeComponent} from './admin/employee/viewEmployees/viewEmployee.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},

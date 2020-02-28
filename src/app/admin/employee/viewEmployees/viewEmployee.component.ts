@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Employee} from '../../_models';
-import {EmployeeService} from '../../_services';
+import {Employee} from '../../../_models';
+import {EmployeeService} from '../../../_services';
 
 @Component({
   templateUrl: 'viewEmployee.component.html',

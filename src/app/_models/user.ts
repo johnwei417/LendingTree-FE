@@ -8,5 +8,7 @@ export class User {
   salary: number;
   phone: string;
   role: string;
+  address: string;
+  deptId: number;
 
 }

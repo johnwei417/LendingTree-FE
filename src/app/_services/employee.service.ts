@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {environment} from '../../environments/environment';
-import {Employee} from '../_models';
+import {Department, Employee} from '../_models';
 
 @Injectable()
 export class EmployeeService {
@@ -11,6 +11,10 @@ export class EmployeeService {
 
   getAllEmployees() {
     return this.http.get<Employee[]>(`${environment.apiUrl}/admin/employees`);
+  }
+
+  getDeptList() {
+    return this.http.get<Department[]>(`${environment.apiUrl}/common/listDepts`);
   }
 
 

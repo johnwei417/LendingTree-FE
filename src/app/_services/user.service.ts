@@ -18,6 +18,10 @@ export class UserService {
     return this.http.post(`${environment.apiUrl}/register`, user);
   }
 
+  registerEmployee(user: User) {
+    return this.http.post(`${environment.apiUrl}/registerEmployee`, user);
+  }
+
   delete(id: number) {
     return this.http.delete(`${environment.apiUrl}/admin/customers/` + id);
   }

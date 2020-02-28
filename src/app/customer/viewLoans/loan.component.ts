@@ -19,7 +19,7 @@ export class CustomerLoanComponent implements OnInit {
 
 
   getLoans() {
-    let user = {
+    const user = {
       id: this.currentUser.id,
       username: this.currentUser.username,
       password: null,
@@ -28,7 +28,9 @@ export class CustomerLoanComponent implements OnInit {
       email: null,
       salary: null,
       phone: null,
-      role: null
+      role: null,
+      address: null,
+      deptId: null,
     };
     this.loanService.getAllForCustomer(user).subscribe(data => this.loans = data['result']);
   }

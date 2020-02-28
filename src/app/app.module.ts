@@ -20,7 +20,7 @@ import {CustomerLoanComponent} from './customer/viewLoans';
 import {NavigationComponent} from './navigation/navigation.component';
 import {NavSideComponent} from './nav-side/nav-side.component';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
-import {ViewEmployeeComponent} from './admin/employee/viewEmployee.component';
+import {ViewEmployeeComponent} from './admin/employee/viewEmployees/viewEmployee.component';
 
 @NgModule({
   imports: [
