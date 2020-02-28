@@ -7,4 +7,5 @@ export class Loan {
   bankId: number;
   loantypeId: number;
   loanstatusId: number;
+
 }

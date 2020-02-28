@@ -19,6 +19,7 @@ import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer/viewLoans';
 import {NavigationComponent} from './navigation/navigation.component';
 import {NavSideComponent} from './nav-side/nav-side.component';
+import {AddLoanComponent} from './customer/addLoans/addLoan.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {NavSideComponent} from './nav-side/nav-side.component';
     LoginComponent,
     RegisterComponent,
     LoanManageComponent,
+    AddLoanComponent,
     CustomerLoanComponent,
     NavigationComponent,
     NavSideComponent

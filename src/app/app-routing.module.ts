@@ -7,6 +7,7 @@ import {RegisterComponent} from './register';
 import {AuthGuard} from './_guards';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer/viewLoans';
+import {AddLoanComponent} from './customer/addLoans/addLoan.component';
 
 
 const appRoutes: Routes = [
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'admin/loans', component: LoanManageComponent, canActivate: [AuthGuard]},
   {path: 'customer/loan', component: CustomerLoanComponent, canActivate: [AuthGuard]},
+  {path: 'customer/addLoan', component: AddLoanComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
 
   // otherwise redirect to home

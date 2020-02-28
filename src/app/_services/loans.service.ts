@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Loan, User} from '../_models';
+import {Bank, Loan, LoanType, User} from '../_models';
 
 @Injectable()
 export class LoanService {
@@ -22,7 +22,15 @@ export class LoanService {
   }
 
   addNewLoan(loan: Loan) {
-    return this.http.put<Loan>(`${environment.apiUrl}/customer/loans/add`, loan);
+    return this.http.post<Loan>(`${environment.apiUrl}/customer/loans/add`, loan);
+  }
+
+  getBanks() {
+    return this.http.get<Bank[]>(`${environment.apiUrl}/common/listBanks`);
+  }
+
+  getLoanTypes() {
+    return this.http.get<LoanType[]>(`${environment.apiUrl}/common/listLoanTypes`);
   }
 
 }
