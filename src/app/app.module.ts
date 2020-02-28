@@ -21,6 +21,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {NavSideComponent} from './nav-side/nav-side.component';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
 import {ViewEmployeeComponent} from './admin/employee/viewEmployees/viewEmployee.component';
+import {AddEmployeeComponent} from './admin/employee/addEmployee';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import {ViewEmployeeComponent} from './admin/employee/viewEmployees/viewEmployee
     CustomerLoanComponent,
     NavigationComponent,
     NavSideComponent,
-    ViewEmployeeComponent
+    ViewEmployeeComponent,
+    AddEmployeeComponent
   ],
   providers: [
     AuthGuard,

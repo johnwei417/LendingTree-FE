@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Bank, Loan, LoanType, User} from '../../_models';
+import {Bank, LoanType, User} from '../../_models';
 import {AlertService, LoanService} from '../../_services';
 import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -7,7 +7,6 @@ import {Router} from '@angular/router';
 
 @Component({templateUrl: 'addLoan.component.html'})
 export class AddLoanComponent implements OnInit {
-  loans: Loan[];
   banks: Bank[];
   loanTypes: LoanType[];
   currentUser: User;
