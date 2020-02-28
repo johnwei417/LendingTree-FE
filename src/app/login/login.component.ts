@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    // reset login status
+    // reset login status if goes to login page
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
