@@ -8,7 +8,7 @@ import {AuthGuard} from './_guards';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer/viewLoans';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
-
+import {ViewEmployeeComponent} from './admin/employee/viewEmployee.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -17,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'customer/loan', component: CustomerLoanComponent, canActivate: [AuthGuard]},
   {path: 'customer/addLoan', component: AddLoanComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
+  {path: 'admin/viewCustomers', component: ViewEmployeeComponent, canActivate: [AuthGuard]},
 
   // otherwise redirect to home
   {path: '**', redirectTo: ''}

@@ -11,7 +11,7 @@ import {routing} from './app-routing.module';
 import {AlertComponent} from './_directives';
 import {AuthGuard} from './_guards';
 import {ErrorInterceptor, JwtInterceptor} from './_helpers';
-import {AlertService, AuthenticationService, LoanService, UserService} from './_services';
+import {AlertService, AuthenticationService, EmployeeService, LoanService, UserService} from './_services';
 import {HomeComponent} from './home';
 import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
@@ -20,6 +20,7 @@ import {CustomerLoanComponent} from './customer/viewLoans';
 import {NavigationComponent} from './navigation/navigation.component';
 import {NavSideComponent} from './nav-side/nav-side.component';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
+import {ViewEmployeeComponent} from './admin/employee/viewEmployee.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import {AddLoanComponent} from './customer/addLoans/addLoan.component';
     AddLoanComponent,
     CustomerLoanComponent,
     NavigationComponent,
-    NavSideComponent
+    NavSideComponent,
+    ViewEmployeeComponent
   ],
   providers: [
     AuthGuard,
@@ -47,6 +49,7 @@ import {AddLoanComponent} from './customer/addLoans/addLoan.component';
     AuthenticationService,
     UserService,
     LoanService,
+    EmployeeService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
 
