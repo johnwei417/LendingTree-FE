@@ -10,6 +10,7 @@ import {CustomerLoanComponent} from './customer/viewLoans';
 import {EmployeeLoanComponent} from './employee/viewLoans';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
 import {ViewEmployeeComponent} from './admin/employee/viewEmployees/viewEmployee.component';
+import {ViewCustomersComponent} from './admin/customers/viewCustomers';
 import {AddEmployeeComponent} from './admin/employee/addEmployee';
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   {path: 'customer/addLoan', component: AddLoanComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'admin/viewEmployees', component: ViewEmployeeComponent, canActivate: [AuthGuard]},
+  {path: 'admin/viewCustomers', component: ViewCustomersComponent, canActivate: [AuthGuard]},
   {path: 'admin/addEmployees', component: AddEmployeeComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
