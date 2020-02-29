@@ -20,7 +20,8 @@
     <td>{{loan.departmentName}}</td>
     <td>{{loan.bankName}}</td>
     <td>
-      <button (click)="assign(loan.id)" *ngIf="loan.departmentName == 'ADMIN' && loan.loanStatusName != 'APPROVED'"
+      <button (click)="assign(loan.id)"
+              *ngIf="loan.departmentName == 'ADMIN' && loan.loanStatusName != 'APPROVED' && loan.loanStatusName != 'REJECTED'"
               class="btn btn-primary btn-block btn-lg">
         Assign To Pickup
       </button>
