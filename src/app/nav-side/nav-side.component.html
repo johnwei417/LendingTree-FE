@@ -1,4 +1,4 @@
-<div *ngIf="isLoggedIn$ && currentUser.role == 'ROLE_ADMIN'">
+<div *ngIf="isLoggedIn$ | async">
   <nav class="col-sm-3 ">
     <div class="col-sm-12" id="fixed-sidebar">
       <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->
@@ -16,7 +16,7 @@
   </nav>
 </div>
 
-<div *ngIf="isLoggedIn$ && currentUser.role == 'ROLE_CUSTOMER'">
+<div *ngIf="isLoggedIn$ | async">
   <nav class="col-sm-3 ">
     <div class="col-sm-12" id="fixed-sidebar">
       <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Bank, LoanType, User} from '../../_models';
-import {AlertService, LoanService} from '../../_services';
+import {AlertService, AuthenticationService, LoanService} from '../../_services';
 import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -15,7 +15,8 @@ export class AddLoanComponent implements OnInit {
   submitted = false;
 
   constructor(private loanService: LoanService, private formBuilder: FormBuilder,
-              private router: Router, private alertService: AlertService) {
+              private router: Router, private alertService: AlertService,
+              private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -33,6 +34,7 @@ export class AddLoanComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.authenticationService.loggedIn.next(true);
     this.addForm = this.formBuilder.group({
       userId: this.currentUser.id,
       amount: ['', Validators.required],

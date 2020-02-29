@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Loan, User} from '../../_models';
-import {LoanService, UserService} from '../../_services';
+import {AuthenticationService, LoanService, UserService} from '../../_services';
 
 
 @Component({templateUrl: 'loan.component.html'})
@@ -9,11 +9,12 @@ export class CustomerLoanComponent implements OnInit {
   currentUser: User;
   user: User;
 
-  constructor(private loanService: LoanService, private userService: UserService) {
+  constructor(private loanService: LoanService, private userService: UserService, private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    this.authenticationService.loggedIn.next(true);
     this.getLoans();
   }
 

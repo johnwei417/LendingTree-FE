@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Department, User} from '../../../_models';
-import {AlertService, EmployeeService, UserService} from '../../../_services';
+import {AlertService, AuthenticationService, EmployeeService, UserService} from '../../../_services';
 import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -15,7 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   submitted = false;
 
   constructor(private employeeService: EmployeeService, private formBuilder: FormBuilder,
-              private router: Router, private alertService: AlertService, private userService: UserService) {
+              private router: Router, private alertService: AlertService, private userService: UserService, private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -35,6 +35,7 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.authenticationService.loggedIn.next(true);
     this.addForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],

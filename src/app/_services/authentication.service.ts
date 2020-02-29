@@ -7,7 +7,7 @@ import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthenticationService {
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
   }
@@ -23,8 +23,8 @@ export class AuthenticationService {
         if (user && user.result.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user.result));
+          this.loggedIn.next(true);
         }
-        this.loggedIn.next(true);
         return user;
       }));
   }

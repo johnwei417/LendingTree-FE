@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 
 import {User} from '../_models';
-import {UserService} from '../_services';
+import {AuthenticationService, UserService} from '../_services';
+import {Observable} from 'rxjs';
 
 @Component({
   templateUrl: 'home.component.html',
@@ -12,14 +13,16 @@ import {UserService} from '../_services';
 export class HomeComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  isLoggedIn$: Observable<boolean>;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 
   ngOnInit() {
     //  this.getUsers();
+    this.authenticationService.loggedIn.next(true);
   }
 
   deleteUser(id: number) {
