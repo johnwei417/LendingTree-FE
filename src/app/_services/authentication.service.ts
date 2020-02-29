@@ -8,12 +8,27 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class AuthenticationService {
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public admin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public customer: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public employee: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
   }
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
+  }
+
+  get isAdmin() {
+    return this.admin.asObservable();
+  }
+
+  get isCustomer() {
+    return this.customer.asObservable();
+  }
+
+  get isEmployee() {
+    return this.employee.asObservable();
   }
 
   login(username: string, password: string) {
@@ -24,6 +39,22 @@ export class AuthenticationService {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user.result));
           this.loggedIn.next(true);
+
+          if (user.result.role[0] === 'ROLE_ADMIN') {
+            this.admin.next(true);
+          } else {
+            this.admin.next(false);
+          }
+          if (user.result.role[0] === 'ROLE_CUSTOMER') {
+            this.customer.next(true);
+          } else {
+            this.customer.next(false);
+          }
+          if (user.result.role[0] !== 'ROLE_CUSTOMER' && user.result.role[0] !== 'ROLE_ADMIN') {
+            this.employee.next(true);
+          } else {
+            this.employee.next(false);
+          }
         }
         return user;
       }));

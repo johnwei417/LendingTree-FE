@@ -1,4 +1,5 @@
-<div *ngIf="isLoggedIn$ | async">
+<div *ngIf="(isAdmin$ | async) && (isLoggedIn$ | async)">
+
   <nav class="col-sm-3 ">
     <div class="col-sm-12" id="fixed-sidebar">
       <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->
@@ -16,7 +17,7 @@
   </nav>
 </div>
 
-<div *ngIf="isLoggedIn$ | async">
+<div *ngIf="( isCustomer$ | async) && (isLoggedIn$ | async)">
   <nav class="col-sm-3 ">
     <div class="col-sm-12" id="fixed-sidebar">
       <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->
@@ -27,6 +28,23 @@
         <a class="list-group-item list-group-item-action " href="#">Pending Loans</a>
         <a class="list-group-item list-group-item-action " href="#">Rejected Loans</a>
         <a class="list-group-item list-group-item-action " href="#">Apply New Loans</a>
+
+        <a class="list-group-item list-group-item-action " href="#">Profile</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="( isEmployee$ | async) && (isLoggedIn$ | async)">
+  <nav class="col-sm-3 ">
+    <div class="col-sm-12" id="fixed-sidebar">
+      <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->
+
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action " href="#">Dashboard</a>
+        <a class="list-group-item list-group-item-action " href="#">Approved Loans</a>
+        <a class="list-group-item list-group-item-action " href="#">Pending Loans</a>
+        <a class="list-group-item list-group-item-action " href="#">Rejected Loans</a>
 
         <a class="list-group-item list-group-item-action " href="#">Profile</a>
       </div>

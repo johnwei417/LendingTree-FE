@@ -15,7 +15,8 @@ export class AddEmployeeComponent implements OnInit {
   submitted = false;
 
   constructor(private employeeService: EmployeeService, private formBuilder: FormBuilder,
-              private router: Router, private alertService: AlertService, private userService: UserService, private authenticationService: AuthenticationService) {
+              private router: Router, private alertService: AlertService, private userService: UserService,
+              private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -36,6 +37,24 @@ export class AddEmployeeComponent implements OnInit {
 
   public ngOnInit() {
     this.authenticationService.loggedIn.next(true);
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (this.currentUser.role[0] === 'ROLE_ADMIN') {
+      this.authenticationService.admin.next(true);
+    } else {
+      this.authenticationService.admin.next(false);
+    }
+
+    if (this.currentUser.role[0] === 'ROLE_CUSTOMER') {
+      this.authenticationService.customer.next(true);
+    } else {
+      this.authenticationService.customer.next(false);
+    }
+
+    if (this.currentUser.role[0] !== 'ROLE_CUSTOMER' && this.currentUser.role[0] !== 'ROLE_ADMIN') {
+      this.authenticationService.employee.next(true);
+    } else {
+      this.authenticationService.employee.next(false);
+    }
     this.addForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
