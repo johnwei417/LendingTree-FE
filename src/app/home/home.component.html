@@ -127,5 +127,29 @@
 
 </div>
 
+<div *ngIf="currentUser.role[0] != 'ROLE_CUSTOMER' && currentUser.role[0] != 'ROLE_ADMIN'">
+  <p>You're logged in as {{currentUser.role[0]}}!</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <a href="/employee/loan">
+          <div class="dbox dbox--color-1">
+            <div class="dbox__icon">
+              <i class="glyphicon glyphicon-cloud"></i>
+            </div>
+
+            <div class="dbox__body">
+              <span class="dbox__count">Loans</span>
+            </div>
+
+            <div class="dbox__action">
+              <button class="dbox__action__btn">More Info</button>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
 
 

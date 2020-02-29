@@ -7,6 +7,7 @@ import {RegisterComponent} from './register';
 import {AuthGuard} from './_guards';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer/viewLoans';
+import {EmployeeLoanComponent} from './employee/viewLoans';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
 import {ViewEmployeeComponent} from './admin/employee/viewEmployees/viewEmployee.component';
 import {AddEmployeeComponent} from './admin/employee/addEmployee';
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'admin/loans', component: LoanManageComponent, canActivate: [AuthGuard]},
   {path: 'customer/loan', component: CustomerLoanComponent, canActivate: [AuthGuard]},
+  {path: 'employee/loan', component: EmployeeLoanComponent, canActivate: [AuthGuard]},
   {path: 'customer/addLoan', component: AddLoanComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'admin/viewEmployees', component: ViewEmployeeComponent, canActivate: [AuthGuard]},

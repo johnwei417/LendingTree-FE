@@ -17,8 +17,16 @@ export class LoanService {
     return this.http.put<Loan>(`${environment.apiUrl}/admin/loanviewer`, loan);
   }
 
+  assignToNextDept(user: User, loanId: number) {
+    return this.http.put<Loan>(`${environment.apiUrl}/employee/viewloans/approve/` + loanId, user);
+  }
+
   getAllForCustomer(user: User) {
     return this.http.post<User>(`${environment.apiUrl}/customer/loans/list`, user);
+  }
+
+  getAllForEmployee(user: User) {
+    return this.http.post<User>(`${environment.apiUrl}/employee/viewloans/list`, user);
   }
 
   addNewLoan(loan: Loan) {

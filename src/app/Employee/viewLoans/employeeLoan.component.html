@@ -1,0 +1,29 @@
+<h3>Loan List</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Username</th>
+    <th>Loan Type</th>
+    <th>Loan Status</th>
+    <th>Loan Amount</th>
+    <th>Current Department</th>
+    <th> Bank Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let loan of loans">
+    <td>{{loan.username}} </td>
+    <td>{{loan.loanTypeName}} </td>
+    <td>{{loan.loanStatusName}}</td>
+    <td>{{loan.amount}}</td>
+    <td>{{loan.departmentName}}</td>
+    <td>{{loan.bankName}}</td>
+    <td>
+      <button (click)="approve(loan.id)" class="btn btn-primary btn-block btn-lg">
+        Approve
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

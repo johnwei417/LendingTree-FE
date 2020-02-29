@@ -17,6 +17,7 @@ import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
 import {LoanManageComponent} from './admin/loans';
 import {CustomerLoanComponent} from './customer/viewLoans';
+import {EmployeeLoanComponent} from './employee/viewLoans';
 import {NavigationComponent} from './navigation/navigation.component';
 import {NavSideComponent} from './nav-side/nav-side.component';
 import {AddLoanComponent} from './customer/addLoans/addLoan.component';
@@ -40,6 +41,7 @@ import {AddEmployeeComponent} from './admin/employee/addEmployee';
     LoanManageComponent,
     AddLoanComponent,
     CustomerLoanComponent,
+    EmployeeLoanComponent,
     NavigationComponent,
     NavSideComponent,
     ViewEmployeeComponent,
