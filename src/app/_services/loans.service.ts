@@ -21,6 +21,10 @@ export class LoanService {
     return this.http.put<Loan>(`${environment.apiUrl}/employee/viewloans/approve/` + loanId, user);
   }
 
+  rejectLoan(loanId: number) {
+    return this.http.put<Loan>(`${environment.apiUrl}/employee/viewloans/reject/` + loanId, loanId);
+  }
+
   getAllForCustomer(user: User) {
     return this.http.post<User>(`${environment.apiUrl}/customer/loans/list`, user);
   }

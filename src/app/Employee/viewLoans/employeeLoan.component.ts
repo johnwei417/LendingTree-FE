@@ -55,4 +55,10 @@ export class EmployeeLoanComponent implements OnInit {
     });
   }
 
+  reject(loanId: number) {
+    this.loanService.rejectLoan(loanId).pipe(first()).subscribe(() => {
+      this.getLoans();
+    });
+  }
+
 }
