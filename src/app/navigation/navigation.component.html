@@ -1,6 +1,8 @@
 <div *ngIf="isLoggedIn$ | async">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Lending Tree</a>
+    <a class="navbar-brand" href="#">
+      <img alt="" src="https://www.underconsideration.com/brandnew/archives/lendingtree_2018_logo_icon_detail.jpg"
+           style=" width:50px; height:50px; margin-right: 20px; opacity: 0.7;"/>Lending Tree</a>
     <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
       <span class="navbar-toggler-icon"></span>
@@ -23,6 +25,20 @@
         </li>
       </ul>
     </div>
+  </nav>
+
+</div>
+
+<div *ngIf="(isLoggedIn$ | async) == false">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img
+      alt="" src="https://www.underconsideration.com/brandnew/archives/lendingtree_2018_logo_icon_detail.jpg"
+      style=" width:50px; height:50px; margin-right: 20px; opacity: 0.7;"/>Lending Tree
+    </a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </nav>
 
 </div>
