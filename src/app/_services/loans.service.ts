@@ -45,4 +45,16 @@ export class LoanService {
     return this.http.get<LoanType[]>(`${environment.apiUrl}/common/listLoanTypes`);
   }
 
+  getActiveLoans() {
+    return this.http.get<Loan[]>(`${environment.apiUrl}/admin/loanviewer/active`);
+  }
+
+  getPendingLoans() {
+    return this.http.get<Loan[]>(`${environment.apiUrl}/admin/loanviewer/pending`);
+  }
+
+  getRejectedLoans() {
+    return this.http.get<Loan[]>(`${environment.apiUrl}/admin/loanviewer/rejected`);
+  }
+
 }

@@ -1,4 +1,4 @@
-<h3>Loan List</h3>
+<h3>Pending Loan List</h3>
 
 <table class="table table-striped">
   <thead>
@@ -19,13 +19,6 @@
     <td>{{loan.amount}}</td>
     <td>{{loan.departmentName}}</td>
     <td>{{loan.bankName}}</td>
-    <td>
-      <button (click)="assign(loan.id)"
-              *ngIf="loan.departmentName == 'ADMIN' && loan.loanStatusName != 'APPROVED' && loan.loanStatusName != 'REJECTED'"
-              class="btn btn-primary btn-block btn-lg">
-        Assign To Pickup
-      </button>
-    </td>
   </tr>
   </tbody>
 </table>
