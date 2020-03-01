@@ -19,6 +19,11 @@
     <td>{{employee.email}}</td>
     <td>{{employee.address}}</td>
     <td>{{employee.deptName}}</td>
+    <td>
+      <button (click)="deleteEmp(employee.id)"
+              class="btn btn-primary btn-block btn-lg">
+        Delete
+      </button>
   </tr>
   </tbody>
 </table>

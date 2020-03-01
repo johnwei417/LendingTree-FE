@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {first} from 'rxjs/operators';
 import {Employee, User} from '../../../_models';
 import {AuthenticationService, EmployeeService} from '../../../_services';
 
@@ -36,6 +37,12 @@ export class ViewEmployeeComponent implements OnInit {
       this.authenticationService.employee.next(false);
     }
 
+  }
+
+  deleteEmp(id: number) {
+    this.employeeService.deleteById(id).pipe(first()).subscribe(() => {
+      this.getEmployees();
+    });
   }
 
   getEmployees() {

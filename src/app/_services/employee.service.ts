@@ -16,6 +16,9 @@ export class EmployeeService {
   getDeptList() {
     return this.http.get<Department[]>(`${environment.apiUrl}/common/listDepts`);
   }
+  deleteById(id: number) {
+    return this.http.delete<Employee>(`${environment.apiUrl}/admin/employees/` + id);
+  }
 
 
 }
