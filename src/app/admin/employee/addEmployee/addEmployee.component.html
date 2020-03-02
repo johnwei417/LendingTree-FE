@@ -1,6 +1,3 @@
-<a>
-  <button (click)="backClicked()"> < Back</button>
-</a>
 <h2>Add New Employee</h2>
 <form (ngSubmit)="onSubmit()" [formGroup]="addForm">
   <div class="form-group">
@@ -86,3 +83,6 @@
     <a [routerLink]="['/admin/viewEmployees']" class="btn btn-link">Cancel</a>
   </div>
 </form>
+<a>
+  <button (click)="backClicked()"> < Back</button>
+</a>

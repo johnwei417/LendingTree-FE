@@ -1,7 +1,5 @@
 <h2>Edit Profile</h2>
-<a>
-  <button (click)="backClicked()"> < Back</button>
-</a>
+
 <form (ngSubmit)="onSubmit()" [formGroup]="editForm">
   <div class="form-group">
     <label for="firstname">First Name</label>
@@ -46,3 +44,7 @@
     <a [routerLink]="['/']" class="btn btn-link">Cancel</a>
   </div>
 </form>
+
+<a>
+  <button (click)="backClicked()"> < Back</button>
+</a>
