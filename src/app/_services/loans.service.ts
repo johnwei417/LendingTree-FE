@@ -26,8 +26,21 @@ export class LoanService {
   }
 
   getAllForCustomer(user: User) {
-    return this.http.post<User>(`${environment.apiUrl}/customer/loans/list`, user);
+    return this.http.post<Loan[]>(`${environment.apiUrl}/customer/loans/list`, user);
   }
+
+  getActiveLoansForCustomer(user: User) {
+    return this.http.post<Loan[]>(`${environment.apiUrl}/customer/loans/listActive`, user);
+  }
+
+  getPendingLoansForCustomer(user: User) {
+    return this.http.post<Loan[]>(`${environment.apiUrl}/customer/loans/listPending`, user);
+  }
+
+  getRejectedLoansForCustomer(user: User) {
+    return this.http.post<Loan[]>(`${environment.apiUrl}/customer/loans/listRejected`, user);
+  }
+
 
   getAllForEmployee(user: User) {
     return this.http.post<User>(`${environment.apiUrl}/employee/viewloans/list`, user);

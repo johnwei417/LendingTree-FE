@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
 import {Bank, LoanType, User} from '../../_models';
 import {AlertService, AuthenticationService, LoanService} from '../../_services';
 import {first} from 'rxjs/operators';
@@ -14,7 +15,8 @@ export class AddLoanComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  constructor(private loanService: LoanService, private formBuilder: FormBuilder,
+  constructor(private location: Location,
+              private loanService: LoanService, private formBuilder: FormBuilder,
               private router: Router, private alertService: AlertService,
               private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -23,6 +25,10 @@ export class AddLoanComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() {
     return this.addForm.controls;
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
   get bankId() {

@@ -1,20 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {Loan, User} from '../../_models';
-import {AuthenticationService, LoanService, UserService} from '../../_services';
+import {AuthenticationService, LoanService} from '../../_services';
 
 
-@Component({templateUrl: 'loan.component.html'})
-export class CustomerLoanComponent implements OnInit {
-  loans: Loan[];
+@Component({templateUrl: 'customerActiveLoans.component.html'})
+export class CustomerActiveLoansComponent implements OnInit {
   currentUser: User;
-  user: User;
+  loans: Loan[];
 
-  constructor(private location: Location, private loanService: LoanService, private userService: UserService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private loanService: LoanService, private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    this.getLoans();
     this.authenticationService.loggedIn.next(true);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (this.currentUser.role[0] === 'ROLE_ADMIN') {
@@ -34,14 +34,11 @@ export class CustomerLoanComponent implements OnInit {
     } else {
       this.authenticationService.employee.next(false);
     }
-    this.getLoans();
   }
-
 
   backClicked() {
     this.location.back();
   }
-
 
   getLoans() {
     const user = {
@@ -57,7 +54,7 @@ export class CustomerLoanComponent implements OnInit {
       address: null,
       deptId: null,
     };
-    this.loanService.getAllForCustomer(user).subscribe(data => this.loans = data['result']);
+    this.loanService.getActiveLoansForCustomer(user).subscribe(data => this.loans = data['result']);
   }
 
 }
