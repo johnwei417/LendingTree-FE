@@ -27,7 +27,15 @@ export class CustomerService {
     return this.http.put<User>(`${environment.apiUrl}/admin/customers/edit/` + id, user);
   }
 
+  editForCustomer(user: User) {
+    return this.http.put<User>(`${environment.apiUrl}/customer/profile/edit`, user);
+  }
+
   getLoanById(id: number) {
     return this.http.get<Loan>(`${environment.apiUrl}/admin/customers/` + id + `/loans`);
+  }
+
+  getCustomer(id: number) {
+    return this.http.get<Customer>(`${environment.apiUrl}/customer/profile/` + id);
   }
 }

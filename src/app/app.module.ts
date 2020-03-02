@@ -34,6 +34,7 @@ import {AdminProfileComponent} from './admin/profile/adminProfile.component';
 import {CustomerActiveLoansComponent} from './customer/ActiveLoans';
 import {CustomerPendingLoansComponent} from './customer/PendingLoans';
 import {CustomerRejectedLoansComponent} from './customer/RejectedLoans';
+import {CustomerProfileComponent} from './customer/profile/customerProfile.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import {CustomerRejectedLoansComponent} from './customer/RejectedLoans';
     CustomerActiveLoansComponent,
     CustomerPendingLoansComponent,
     CustomerRejectedLoansComponent,
+    CustomerProfileComponent,
   ],
   providers: [
     AuthGuard,

@@ -27,16 +27,16 @@ export class AddLoanComponent implements OnInit {
     return this.addForm.controls;
   }
 
-  backClicked() {
-    this.location.back();
-  }
-
   get bankId() {
     return this.addForm.get('bankId');
   }
 
   get loanTypeId() {
     return this.addForm.get('loantypeId');
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
   public ngOnInit(): void {

@@ -107,12 +107,13 @@
           </div>
         </a>
 
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
-<div *ngIf="currentUser.role[0] != 'ROLE_CUSTOMER' && currentUser.role[0] != 'ROLE_ADMIN'">
+<div *ngIf="currentUser.role[0] == 'ROLE_EMPLOYEE'">
 
   <div class="container">
     <div class="row">
@@ -132,8 +133,7 @@
             </div>
           </div>
         </a>
-
       </div>
-
-
-
+    </div>
+  </div>
+</div>
