@@ -17,12 +17,7 @@
     <td>{{customer.lastname}} </td>
     <td>{{customer.email}}</td>
     <td>{{customer.salary}}</td>
-    <td>
-      <button (click)="deleteCustomer(customer.id)"
-              class="btn btn-primary btn-block btn-lg">
-        Delete
-      </button>
-    </td>
+
     <td>
       <a href="admin/viewCustomers/edit?id={{customer.id}}">
         <button>Edit / Update</button>
@@ -33,6 +28,13 @@
       <a href="admin/viewCustomers/loans?id={{customer.id}}">
         <button>View Loans</button>
       </a>
+    </td>
+
+    <td>
+      <button (click)="deleteCustomer(customer.id)"
+              class="btn btn-primary btn-block btn-lg">
+        Delete
+      </button>
     </td>
   </tr>
   </tbody>

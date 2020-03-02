@@ -25,15 +25,15 @@
     <td>{{employee.deptName}}</td>
     <td>
     <td>
+      <a href="admin/viewEmployees/edit?id={{employee.id}}">
+        <button>Edit / Update</button>
+      </a>
+    </td>
+    <td>
       <button (click)="deleteEmp(employee.id)"
               class="btn btn-primary btn-block btn-lg">
         Delete
       </button>
-    </td>
-    <td>
-      <a href="admin/viewEmployees/edit?id={{employee.id}}">
-        <button>Edit / Update</button>
-      </a>
     </td>
 
   </tr>
