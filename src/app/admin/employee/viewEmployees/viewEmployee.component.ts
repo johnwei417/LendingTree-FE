@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
+import {Location} from '@angular/common';
 import {Employee, User} from '../../../_models';
 import {AuthenticationService, EmployeeService} from '../../../_services';
 
@@ -11,7 +12,7 @@ export class ViewEmployeeComponent implements OnInit {
   currentUser: User;
   employees: Employee[] = [];
 
-  constructor(private employeeService: EmployeeService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private employeeService: EmployeeService, private authenticationService: AuthenticationService) {
   }
 
 
@@ -37,6 +38,10 @@ export class ViewEmployeeComponent implements OnInit {
       this.authenticationService.employee.next(false);
     }
 
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
   deleteEmp(id: number) {

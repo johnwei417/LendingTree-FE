@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Department, User} from '../../../_models';
 import {AlertService, AuthenticationService, EmployeeService, UserService} from '../../../_services';
 import {first} from 'rxjs/operators';
+import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -14,7 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  constructor(private employeeService: EmployeeService, private formBuilder: FormBuilder,
+  constructor(private location: Location, private employeeService: EmployeeService, private formBuilder: FormBuilder,
               private router: Router, private alertService: AlertService, private userService: UserService,
               private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -27,6 +28,10 @@ export class AddEmployeeComponent implements OnInit {
 
   get deptId() {
     return this.addForm.get('deptId');
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
   changeDept(e) {

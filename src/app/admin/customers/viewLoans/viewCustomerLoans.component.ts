@@ -1,20 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
 import {Loan, User} from '../../../_models';
-import {AuthenticationService, LoanService} from '../../../_services';
+import {AuthenticationService, CustomerService} from '../../../_services';
+import {Location} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 
 
-@Component({templateUrl: 'activeLoans.component.html'})
-export class ActiveLoansComponent implements OnInit {
+@Component({templateUrl: 'viewCustomerLoans.component.html'})
+export class ViewCustomerLoansComponent implements OnInit {
   currentUser: User;
   loans: Loan[];
+  id: number;
 
-  constructor(private location: Location, private loanService: LoanService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private customerService: CustomerService, private authenticationService: AuthenticationService,
+              private activatedRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-    this.getLoans();
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.id = params['id'];
+    });
+    this.getLoans(this.id);
     this.authenticationService.loggedIn.next(true);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (this.currentUser.role[0] === 'ROLE_ADMIN') {
@@ -40,8 +46,9 @@ export class ActiveLoansComponent implements OnInit {
     this.location.back();
   }
 
-  getLoans() {
-    this.loanService.getActiveLoans().subscribe(data => this.loans = data['result']);
+  getLoans(id: number) {
+    this.customerService.getLoanById(id).subscribe(data => this.loans = data['result']);
   }
+
 
 }

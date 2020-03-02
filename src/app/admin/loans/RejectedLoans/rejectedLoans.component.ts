@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
 import {Loan, User} from '../../../_models';
 import {AuthenticationService, LoanService} from '../../../_services';
 
@@ -8,7 +9,7 @@ export class RejectedLoansComponent implements OnInit {
   currentUser: User;
   loans: Loan[];
 
-  constructor(private loanService: LoanService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private loanService: LoanService, private authenticationService: AuthenticationService) {
 
   }
 
@@ -35,6 +36,9 @@ export class RejectedLoansComponent implements OnInit {
     }
   }
 
+  backClicked() {
+    this.location.back();
+  }
 
   getLoans() {
     this.loanService.getRejectedLoans().subscribe(data => this.loans = data['result']);

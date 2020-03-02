@@ -1,5 +1,7 @@
 <h3>Customer List</h3>
-
+<a>
+  <button (click)="backClicked()"> < Back</button>
+</a>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -24,6 +26,12 @@
     <td>
       <a href="admin/viewCustomers/edit?id={{customer.id}}">
         <button>Edit / Update</button>
+      </a>
+    </td>
+
+    <td>
+      <a href="admin/viewCustomers/loans?id={{customer.id}}">
+        <button>View Loans</button>
       </a>
     </td>
   </tr>

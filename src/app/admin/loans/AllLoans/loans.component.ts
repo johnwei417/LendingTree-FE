@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Loan, User} from '../../../_models';
 import {AuthenticationService, LoanService} from '../../../_services';
 import {first} from 'rxjs/operators';
+import {Location} from '@angular/common';
 
 
 @Component({templateUrl: 'loans.component.html'})
@@ -9,7 +10,7 @@ export class LoanManageComponent implements OnInit {
   currentUser: User;
   loans: Loan[];
 
-  constructor(private loanService: LoanService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private loanService: LoanService, private authenticationService: AuthenticationService) {
 
   }
 
@@ -36,6 +37,9 @@ export class LoanManageComponent implements OnInit {
     }
   }
 
+  backClicked() {
+    this.location.back();
+  }
 
   getLoans() {
     this.loanService.getAll().subscribe(data => this.loans = data['result']);

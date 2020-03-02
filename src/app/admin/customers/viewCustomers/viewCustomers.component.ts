@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer, User} from '../../../_models';
 import {AuthenticationService, CustomerService} from '../../../_services';
+import {Location} from '@angular/common';
 import {first} from 'rxjs/operators';
 
 @Component({
@@ -11,7 +12,7 @@ export class ViewCustomersComponent implements OnInit {
   currentUser: User;
   customers: Customer[] = [];
 
-  constructor(private customerService: CustomerService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private customerService: CustomerService, private authenticationService: AuthenticationService) {
   }
 
 
@@ -37,6 +38,10 @@ export class ViewCustomersComponent implements OnInit {
       this.authenticationService.employee.next(false);
     }
 
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
   getCustomers() {

@@ -4,6 +4,7 @@ import {AlertService, AuthenticationService, CustomerService, UserService} from 
 import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 
 @Component({templateUrl: 'editCustomer.component.html'})
@@ -17,7 +18,7 @@ export class EditCustomerComponent implements OnInit {
   user: User;
   id: number;
 
-  constructor(private customerService: CustomerService, private formBuilder: FormBuilder,
+  constructor(private location: Location, private customerService: CustomerService, private formBuilder: FormBuilder,
               private router: Router, private alertService: AlertService, private userService: UserService,
               private authenticationService: AuthenticationService, private activatedRoute: ActivatedRoute) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -31,6 +32,9 @@ export class EditCustomerComponent implements OnInit {
     return this.editForm.controls;
   }
 
+  backClicked() {
+    this.location.back();
+  }
 
   public ngOnInit() {
     this.authenticationService.loggedIn.next(true);

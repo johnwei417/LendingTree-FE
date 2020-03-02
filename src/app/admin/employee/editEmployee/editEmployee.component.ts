@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Department, User} from '../../../_models';
 import {AlertService, AuthenticationService, EmployeeService, UserService} from '../../../_services';
 import {first} from 'rxjs/operators';
+import {Location} from '@angular/common';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -17,7 +18,7 @@ export class EditEmployeeComponent implements OnInit {
   user: User;
   id: number;
 
-  constructor(private employeeService: EmployeeService, private formBuilder: FormBuilder,
+  constructor(private location: Location, private employeeService: EmployeeService, private formBuilder: FormBuilder,
               private router: Router, private alertService: AlertService, private userService: UserService,
               private authenticationService: AuthenticationService, private activatedRoute: ActivatedRoute) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -39,6 +40,10 @@ export class EditEmployeeComponent implements OnInit {
     this.deptId.setValue(e.target.value, {
       onlySelf: true
     });
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
   public ngOnInit() {
