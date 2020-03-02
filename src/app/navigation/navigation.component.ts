@@ -16,6 +16,7 @@ export class NavigationComponent implements OnInit {
   isCustomer$: Observable<boolean>;
   isEmployee$: Observable<boolean>;
 
+
   constructor(private authenticationService: AuthenticationService) {
   }
 
