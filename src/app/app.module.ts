@@ -28,6 +28,7 @@ import {ActiveLoansComponent} from './admin/loans/ActiveLoans';
 import {PendingLoansComponent} from './admin/loans/PendingLoans';
 import {RejectedLoansComponent} from './admin/loans/RejectedLoans';
 import {EditEmployeeComponent} from './admin/employee/editEmployee';
+import {EditCustomerComponent} from './admin/customers/editCustomers';
 
 @NgModule({
   imports: [
@@ -57,6 +58,7 @@ import {EditEmployeeComponent} from './admin/employee/editEmployee';
     PendingLoansComponent,
     RejectedLoansComponent,
     EditEmployeeComponent,
+    EditCustomerComponent,
   ],
   providers: [
     AuthGuard,

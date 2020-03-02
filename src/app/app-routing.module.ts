@@ -16,6 +16,7 @@ import {ActiveLoansComponent} from './admin/loans/ActiveLoans';
 import {PendingLoansComponent} from './admin/loans/PendingLoans';
 import {RejectedLoansComponent} from './admin/loans/RejectedLoans';
 import {EditEmployeeComponent} from './admin/employee/editEmployee';
+import {EditCustomerComponent} from './admin/customers/editCustomers';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path: 'admin/pendingLoans', component: PendingLoansComponent, canActivate: [AuthGuard]},
   {path: 'admin/rejectedLoans', component: RejectedLoansComponent, canActivate: [AuthGuard]},
   {path: 'admin/viewEmployees/edit', component: EditEmployeeComponent, canActivate: [AuthGuard]},
+  {path: 'admin/viewCustomers/edit', component: EditCustomerComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

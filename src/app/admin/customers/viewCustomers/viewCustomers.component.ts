@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer, User} from '../../../_models';
 import {AuthenticationService, CustomerService} from '../../../_services';
+import {first} from 'rxjs/operators';
 
 @Component({
   templateUrl: 'viewCustomers.component.html',
@@ -15,7 +16,7 @@ export class ViewCustomersComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getEmployees();
+    this.getCustomers();
     this.authenticationService.loggedIn.next(true);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (this.currentUser.role[0] === 'ROLE_ADMIN') {
@@ -38,7 +39,15 @@ export class ViewCustomersComponent implements OnInit {
 
   }
 
-  getEmployees() {
+  getCustomers() {
     this.customerService.getAllCustomer().subscribe(data => this.customers = data['result']);
+  }
+
+  deleteCustomer(id: number) {
+    if (window.confirm('Are sure you want to delete this customer ?')) {
+      this.customerService.deleteById(id).pipe(first()).subscribe(() => {
+        this.getCustomers();
+      });
+    }
   }
 }
