@@ -23,7 +23,7 @@ import {CustomerActiveLoansComponent} from './customer/ActiveLoans';
 import {CustomerPendingLoansComponent} from './customer/PendingLoans';
 import {CustomerRejectedLoansComponent} from './customer/RejectedLoans';
 import {CustomerProfileComponent} from './customer/profile/customerProfile.component';
-
+import {EmployeeProfileComponent} from './Employee/profile/employeeProfile.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -47,6 +47,7 @@ const appRoutes: Routes = [
   {path: 'customer/loans/pending', component: CustomerPendingLoansComponent, canActivate: [AuthGuard]},
   {path: 'customer/loans/rejected', component: CustomerRejectedLoansComponent, canActivate: [AuthGuard]},
   {path: 'customer/profile', component: CustomerProfileComponent, canActivate: [AuthGuard]},
+  {path: 'employee/profile', component: EmployeeProfileComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

@@ -1,0 +1,61 @@
+<h2>Edit Profile</h2>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="editForm">
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input [(ngModel)]="user.firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+           class="form-control"
+           formControlName="firstname" type="text"/>
+    <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+      <div *ngIf="f.firstname.errors.required">First Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input [(ngModel)]="user.lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" class="form-control"
+           formControlName="lastname" type="text"/>
+
+  </div>
+
+  <div class="form-group">
+    <label for="oldPassword">Old Password</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.oldPassword.errors }" class="form-control"
+           formControlName="oldPassword" type="password"/>
+  </div>
+
+  <div class="form-group">
+    <label for="password">New Password</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control"
+           formControlName="password" type="password"/>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input [(ngModel)]="user.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control"
+           formControlName="email" type="email"/>
+
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input [(ngModel)]="user.phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" class="form-control"
+           formControlName="phone" type="text"/>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input [(ngModel)]="user.address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" class="form-control"
+           formControlName="address" type="text"/>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">Save</button>
+    <img *ngIf="loading"
+         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    <a [routerLink]="['/']" class="btn btn-link">Cancel</a>
+  </div>
+</form>
+
+<a>
+  <button (click)="backClicked()"> < Back</button>
+</a>

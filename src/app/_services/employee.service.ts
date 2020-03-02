@@ -29,5 +29,13 @@ export class EmployeeService {
     return this.http.put<User>(`${environment.apiUrl}/admin/employees/edit/` + id, user);
   }
 
+  editForEmployee(user: User) {
+    return this.http.put<User>(`${environment.apiUrl}/employee/profile/edit`, user);
+  }
+
+  getEmployee(id: number) {
+    return this.http.get<Employee>(`${environment.apiUrl}/employee/profile/` + id);
+  }
+
 
 }
