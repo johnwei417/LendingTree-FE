@@ -83,7 +83,7 @@ export class EmployeeProfileComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.alertService.success('Update Admin successful', true);
+          this.alertService.success('Update Employee successful', true);
           this.router.navigate(['/']);
         },
         error => {

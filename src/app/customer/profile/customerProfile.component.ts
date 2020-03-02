@@ -83,11 +83,11 @@ export class CustomerProfileComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.alertService.success('Update Admin successful', true);
+          this.alertService.success('Update Customer successful', true);
           this.router.navigate(['/']);
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error('Update Customer failed', true);
           this.loading = false;
         });
 
