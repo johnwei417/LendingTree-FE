@@ -40,9 +40,11 @@ export class ViewEmployeeComponent implements OnInit {
   }
 
   deleteEmp(id: number) {
-    this.employeeService.deleteById(id).pipe(first()).subscribe(() => {
-      this.getEmployees();
-    });
+    if (window.confirm('Are sure you want to delete this employee ?')) {
+      this.employeeService.deleteById(id).pipe(first()).subscribe(() => {
+        this.getEmployees();
+      });
+    }
   }
 
   getEmployees() {
