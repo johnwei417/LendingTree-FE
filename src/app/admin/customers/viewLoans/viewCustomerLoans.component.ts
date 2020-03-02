@@ -10,6 +10,7 @@ export class ViewCustomerLoansComponent implements OnInit {
   currentUser: User;
   loans: Loan[];
   id: number;
+  user: User;
 
   constructor(private location: Location, private customerService: CustomerService, private authenticationService: AuthenticationService,
               private activatedRoute: ActivatedRoute) {
@@ -21,6 +22,7 @@ export class ViewCustomerLoansComponent implements OnInit {
       this.id = params['id'];
     });
     this.getLoans(this.id);
+    this.getCustomerById(this.id);
     this.authenticationService.loggedIn.next(true);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (this.currentUser.role[0] === 'ROLE_ADMIN') {
@@ -44,6 +46,10 @@ export class ViewCustomerLoansComponent implements OnInit {
 
   backClicked() {
     this.location.back();
+  }
+
+  getCustomerById(id: number) {
+    this.customerService.getCustomerById(id).subscribe(data => this.user = data['result']);
   }
 
   getLoans(id: number) {
