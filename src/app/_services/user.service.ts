@@ -25,4 +25,12 @@ export class UserService {
   delete(id: number) {
     return this.http.delete(`${environment.apiUrl}/admin/customers/` + id);
   }
+
+  edit(user: User) {
+    return this.http.put<User>(`${environment.apiUrl}/admin/profile/edit`, user);
+  }
+
+  getAdmin(id: number) {
+    return this.http.get<User>(`${environment.apiUrl}/admin/profile/` + id);
+  }
 }

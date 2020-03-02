@@ -30,6 +30,7 @@ import {RejectedLoansComponent} from './admin/loans/RejectedLoans';
 import {EditEmployeeComponent} from './admin/employee/editEmployee';
 import {EditCustomerComponent} from './admin/customers/editCustomers';
 import {ViewCustomerLoansComponent} from './admin/customers/viewLoans';
+import {AdminProfileComponent} from './admin/profile/adminProfile.component';
 
 @NgModule({
   imports: [
@@ -61,6 +62,7 @@ import {ViewCustomerLoansComponent} from './admin/customers/viewLoans';
     EditEmployeeComponent,
     EditCustomerComponent,
     ViewCustomerLoansComponent,
+    AdminProfileComponent,
   ],
   providers: [
     AuthGuard,
