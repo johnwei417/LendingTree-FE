@@ -1,0 +1,1 @@
+export * from './editEmployee.component';

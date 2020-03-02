@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -27,6 +27,7 @@ import {AddEmployeeComponent} from './admin/employee/addEmployee';
 import {ActiveLoansComponent} from './admin/loans/ActiveLoans';
 import {PendingLoansComponent} from './admin/loans/PendingLoans';
 import {RejectedLoansComponent} from './admin/loans/RejectedLoans';
+import {EditEmployeeComponent} from './admin/employee/editEmployee';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import {RejectedLoansComponent} from './admin/loans/RejectedLoans';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    FormsModule,
     routing
   ],
   declarations: [
@@ -54,6 +56,7 @@ import {RejectedLoansComponent} from './admin/loans/RejectedLoans';
     ActiveLoansComponent,
     PendingLoansComponent,
     RejectedLoansComponent,
+    EditEmployeeComponent,
   ],
   providers: [
     AuthGuard,
