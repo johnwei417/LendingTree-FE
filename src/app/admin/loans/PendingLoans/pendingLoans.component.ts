@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {Loan, User} from '../../../_models';
 import {AuthenticationService, LoanService} from '../../../_services';
+import {first} from 'rxjs/operators';
 
 
 @Component({templateUrl: 'pendingLoans.component.html'})
@@ -42,6 +43,22 @@ export class PendingLoansComponent implements OnInit {
 
   getLoans() {
     this.loanService.getPendingLoans().subscribe(data => this.loans = data['result']);
+  }
+
+  assign(loanid: number) {
+    let loan: Loan = {
+      id: loanid,
+      userId: null,
+      cusId: null,
+      amount: null,
+      deptId: null,
+      bankId: null,
+      loantypeId: null,
+      loanstatusId: null
+    };
+    this.loanService.assignToPick(loan).pipe(first()).subscribe(() => {
+      this.getLoans();
+    });
   }
 
 }
