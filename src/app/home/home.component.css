@@ -7,7 +7,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5641', endColorstr='#fd3261', GradientType=0);
   border-radius: 4px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .dbox__icon {
@@ -58,7 +58,7 @@
 
 .dbox__count {
   display: block;
-  font-size: 25px;
+  font-size: 20px;
   color: #FFF;
   font-weight: 300;
 }
@@ -82,7 +82,7 @@
   padding: 7px 16px;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: .5px;
   color: #003e85;
   box-shadow: 0 3px 5px #d4d4d4;
@@ -130,5 +130,27 @@
 }
 
 .dbox--color-3 .dbox__icon > i {
+  background: #8150e4;
+}
+
+.dbox--color-4 {
+  background: rgb(183, 71, 247);
+  background: -moz-linear-gradient(top, rgba(183, 71, 247, 1) 0%, rgba(108, 83, 220, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(183, 71, 247, 1) 0%, rgba(108, 83, 220, 1) 100%);
+  background: linear-gradient(to bottom, rgba(183, 71, 247, 1) 0%, rgba(108, 83, 220, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b747f7', endColorstr='#6c53dc', GradientType=0);
+}
+
+.dbox--color-4 .dbox__icon:after {
+  background: #b446f5;
+  background: rgba(180, 70, 245, 0.76);
+}
+
+.dbox--color-4 .dbox__icon:before {
+  background: #e284ff;
+  background: rgba(226, 132, 255, 0.66);
+}
+
+.dbox--color-4 .dbox__icon > i {
   background: #8150e4;
 }

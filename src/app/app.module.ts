@@ -36,6 +36,10 @@ import {CustomerRejectedLoansComponent} from './customer/RejectedLoans';
 import {CustomerProfileComponent} from './customer/profile/customerProfile.component';
 import {EmployeeProfileComponent} from './Employee/profile/employeeProfile.component';
 import {WeatherService} from './_services/weather.service';
+import {DepartmentService} from './_services/department.service';
+import {ViewDepartmentsComponent} from './admin/department/viewDepartments';
+import {AddDepartmentComponent} from './admin/department/addDepartment/addDepartment.component';
+import {EditDepartmentComponent} from './admin/department/editDepartment';
 
 
 @NgModule({
@@ -74,6 +78,10 @@ import {WeatherService} from './_services/weather.service';
     CustomerRejectedLoansComponent,
     CustomerProfileComponent,
     EmployeeProfileComponent,
+    ViewDepartmentsComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+
   ],
   providers: [
     AuthGuard,
@@ -84,6 +92,7 @@ import {WeatherService} from './_services/weather.service';
     LoanService,
     EmployeeService,
     CustomerService,
+    DepartmentService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
 
