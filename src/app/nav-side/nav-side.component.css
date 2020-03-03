@@ -1,8 +1,11 @@
 #fixed-sidebar {
   position: fixed;
   max-width: 20%;
+  display: block;
   color: white;
+  top: 77px;
 }
+
 
 .list-group {
   height: auto; /* Full-height: remove this if you want "auto" height */

@@ -1,5 +1,6 @@
-#logout {
-  text-align: right !important;
+.navigation {
+  position: relative;
+  margin-top: 0px;
 }
 
 #weather {
