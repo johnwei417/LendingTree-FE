@@ -7,7 +7,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {AppComponent} from './app.component';
 import {routing} from './app-routing.module';
-
 import {AlertComponent} from './_directives';
 import {AuthGuard} from './_guards';
 import {ErrorInterceptor, JwtInterceptor} from './_helpers';
@@ -36,6 +35,7 @@ import {CustomerPendingLoansComponent} from './customer/PendingLoans';
 import {CustomerRejectedLoansComponent} from './customer/RejectedLoans';
 import {CustomerProfileComponent} from './customer/profile/customerProfile.component';
 import {EmployeeProfileComponent} from './Employee/profile/employeeProfile.component';
+import {WeatherService} from './_services/weather.service';
 
 
 @NgModule({
@@ -78,6 +78,7 @@ import {EmployeeProfileComponent} from './Employee/profile/employeeProfile.compo
   providers: [
     AuthGuard,
     AlertService,
+    WeatherService,
     AuthenticationService,
     UserService,
     LoanService,

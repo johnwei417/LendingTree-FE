@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AuthenticationService} from '../_services';
 import {User} from '../_models';
+import {WeatherService} from '../_services/weather.service';
 
 
 @Component({
@@ -15,9 +16,10 @@ export class NavigationComponent implements OnInit {
   isAdmin$: Observable<boolean>;
   isCustomer$: Observable<boolean>;
   isEmployee$: Observable<boolean>;
+  weather: any = {};
 
 
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService, private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +28,11 @@ export class NavigationComponent implements OnInit {
     this.isCustomer$ = this.authenticationService.isCustomer;
     this.isEmployee$ = this.authenticationService.isEmployee;
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.getWeather();
+  }
+
+  getWeather() {
+    return this.weatherService.getWeather().subscribe(data => this.weather = data);
   }
 
   onLogout() {

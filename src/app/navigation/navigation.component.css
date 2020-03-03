@@ -1,3 +1,9 @@
 #logout {
   text-align: right !important;
 }
+
+#weather {
+  color: white;
+  font-size: 13px;
+  margin-right: 100px;
+}
