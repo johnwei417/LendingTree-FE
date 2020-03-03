@@ -30,7 +30,9 @@
         <img alt="" src="http://www.myiconfinder.com/uploads/iconsets/98e2a448aca3310dfd045e443106efba-weather.png"
              style=" width:50px; height:50px; margin-right: 20px; opacity: 0.7;"/>
         <li class="nav-item">
-          <div id="weather">[PITTSBURGH] Weather: {{weather.weather[0].main}} / Temperature: {{weather.main.temp}}</div>
+          <div id="weather">[PITTSBURGH] Weather: {{weather.weather[0].main}} /
+            Temperature: {{(weather.main.temp - 273.15) * 9 / 5 + 32 | number:'1.0-0'}} F
+          </div>
         </li>
       </ul>
 
