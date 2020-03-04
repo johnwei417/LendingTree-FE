@@ -25,7 +25,6 @@ export class ViewEmployeeComponent implements OnInit {
     } else {
       this.authenticationService.admin.next(false);
     }
-
     if (this.currentUser.role[0] === 'ROLE_CUSTOMER') {
       this.authenticationService.customer.next(true);
     } else {
