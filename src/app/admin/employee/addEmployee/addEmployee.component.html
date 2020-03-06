@@ -70,7 +70,7 @@
     <br>
     <select (change)="changeDept($event)" [ngClass]="{ 'is-invalid': submitted && f.deptId.errors }"
             formControlName="deptId">
-      <option value="">Choose Department</option>
+      <option disabled value="">Choose Department</option>
       <option *ngFor="let department of departments" [value]="department.id">{{department.deptName}}
       </option>
     </select>

@@ -16,8 +16,8 @@
 
 .dbox__icon {
   position: absolute;
-  transform: translateY(-50%) translateX(-50%);
-  left: 50%;
+  transform: translateY(-90%) translateX(-90%);
+  left: 80%;
 }
 
 .dbox__icon:before {
@@ -62,7 +62,7 @@
 
 .dbox__count {
   display: block;
-  font-size: 20px;
+  font-size: 23px;
   color: #FFF;
   font-weight: 300;
 }

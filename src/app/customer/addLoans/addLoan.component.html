@@ -19,7 +19,7 @@
     <label for="bankId">Select Bank</label>
     <br>
     <select (change)="changeBank($event)" formControlName="bankId">
-      <option value="">Choose your bank</option>
+      <option disabled value="">Choose your bank</option>
       <option *ngFor="let bank of banks" [value]="bank.id">{{bank.bankName}}
       </option>
     </select>
@@ -29,7 +29,7 @@
     <label for="loantypeId">Select Loan Type</label>
     <br>
     <select (change)="changeType($event)" formControlName="loantypeId">
-      <option value="">Choose Loan Type</option>
+      <option disabled value="">Choose Loan Type</option>
       <option *ngFor="let loantype of loanTypes" [value]="loantype.id">{{loantype.loanType}}
       </option>
     </select>

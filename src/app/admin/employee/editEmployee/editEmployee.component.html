@@ -45,7 +45,7 @@
     <label for="deptId">Select Department</label>
     <br>
     <select (change)="changeDept($event)" [(ngModel)]="user.deptId" formControlName="deptId">
-      <option value="">Choose Department</option>
+      <option disabled value="">Choose Department</option>
       <option *ngFor="let department of departments" [value]="department.id">{{department.deptName}}
       </option>
     </select>
