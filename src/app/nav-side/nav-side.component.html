@@ -47,3 +47,16 @@
     </div>
   </nav>
 </div>
+
+<div *ngIf="(isLoggedIn$ | async)==false">
+  <nav class="col-sm-3 ">
+    <div class="col-sm-12" id="fixed-sidebar">
+      <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->
+
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action " href="/contact">Contact</a>
+        <a class="list-group-item list-group-item-action " href="/about">About</a>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,11 +1,24 @@
 .w3-container {
   padding: 20px;
-  margin-left: 20px;
 }
 
 form {
   font-size: 20px;
-  margin-left: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.register {
+  padding-top: 0px;
+  margin-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.form-group {
+  padding: 5px;
 }
 
 .button {

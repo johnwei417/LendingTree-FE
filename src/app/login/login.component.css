@@ -1,18 +1,35 @@
 .w3-container {
   padding: 20px;
-  margin-left: 20px;
 }
 
-form {
-  font-size: 20px;
-  margin-left: 20px;
+.login {
+  border: solid 2px lightslategrey;
+  padding-top: 0px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 20px;
 }
+
+h4 {
+  text-align: center;
+}
+
+.form-group {
+  margin: 20px;
+  display: inline-block;
+}
+
+.form-control {
+  display: inline-block;
+  margin: 8px;
+}
+
 
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -46,3 +63,4 @@ form {
   margin: 4px 2px;
   cursor: pointer;
 }
+

@@ -1,10 +1,13 @@
 .w3-container {
   padding: 20px;
+  margin-left: 20px;
 }
 
 form {
   font-size: 20px;
+  margin-left: 20px;
 }
+
 
 .button {
   background-color: #4CAF50; /* Green */
