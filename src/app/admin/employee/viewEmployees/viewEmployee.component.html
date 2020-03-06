@@ -1,7 +1,9 @@
-<h3>Employee List</h3>
+<div class="w3-container w3-teal">
+  <h3>Employee List</h3>
+</div>
 <div></div>
 <a href="/admin/addEmployees">
-  <button>Add New Employee ></button>
+  <button class="button3">Add New Employee ></button>
 </a>
 <table class="table table-striped">
   <thead>
@@ -11,6 +13,8 @@
     <th>Email</th>
     <th>Address</th>
     <th>Department</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -21,14 +25,13 @@
     <td>{{employee.address}}</td>
     <td>{{employee.deptName}}</td>
     <td>
-    <td>
       <a href="admin/viewEmployees/edit?id={{employee.id}}">
-        <button>Edit / Update</button>
+        <button class="button">Edit / Update</button>
       </a>
     </td>
     <td>
       <button (click)="deleteEmp(employee.id)"
-              class="btn btn-primary btn-block btn-lg">
+              class="button2">
         Delete
       </button>
     </td>
@@ -38,5 +41,5 @@
 </table>
 
 <a>
-  <button (click)="backClicked()"> < Back</button>
+  <button (click)="backClicked()" class="button"> < Back</button>
 </a>

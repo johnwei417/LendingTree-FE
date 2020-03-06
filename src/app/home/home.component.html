@@ -1,4 +1,6 @@
-<h1>Hi {{currentUser.username}}!</h1>
+<div class="w3-container w3-teal">
+  <h1>Welcome {{currentUser.username}}!</h1>
+</div>
 <div *ngIf="currentUser.role[0] == 'ROLE_ADMIN'">
   <!-- <p>You're logged in as {{currentUser.role[0]}}!</p> -->
   <!-- <h3>All registered users:</h3> -->

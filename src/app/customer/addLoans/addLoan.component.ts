@@ -6,7 +6,10 @@ import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
-@Component({templateUrl: 'addLoan.component.html'})
+@Component({
+  templateUrl: 'addLoan.component.html',
+  styleUrls: ['addLoan.component.css']
+})
 export class AddLoanComponent implements OnInit {
   banks: Bank[];
   loanTypes: LoanType[];

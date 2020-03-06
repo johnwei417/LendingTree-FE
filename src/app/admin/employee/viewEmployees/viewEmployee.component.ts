@@ -6,6 +6,7 @@ import {AuthenticationService, EmployeeService} from '../../../_services';
 
 @Component({
   templateUrl: 'viewEmployee.component.html',
+  styleUrls: ['viewEmployee.component.css']
 })
 
 export class ViewEmployeeComponent implements OnInit {

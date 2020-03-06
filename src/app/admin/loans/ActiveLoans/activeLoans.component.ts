@@ -4,7 +4,10 @@ import {Loan, User} from '../../../_models';
 import {AuthenticationService, LoanService} from '../../../_services';
 
 
-@Component({templateUrl: 'activeLoans.component.html'})
+@Component({
+  templateUrl: 'activeLoans.component.html',
+  styleUrls: ['activeLoans.component.css']
+})
 export class ActiveLoansComponent implements OnInit {
   currentUser: User;
   loans: Loan[];

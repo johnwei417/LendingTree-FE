@@ -1,3 +1,7 @@
+.w3-container {
+  padding: 30px;
+}
+
 .dbox {
   position: relative;
   background: rgb(255, 86, 65);

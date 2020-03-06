@@ -5,7 +5,10 @@ import {first} from 'rxjs/operators';
 import {Location} from '@angular/common';
 
 
-@Component({templateUrl: 'loans.component.html'})
+@Component({
+  templateUrl: 'loans.component.html',
+  styleUrls: ['loans.component.css'],
+})
 export class LoanManageComponent implements OnInit {
   currentUser: User;
   loans: Loan[];
@@ -46,19 +49,21 @@ export class LoanManageComponent implements OnInit {
   }
 
   assign(loanid: number) {
-    let loan: Loan = {
-      id: loanid,
-      userId: null,
-      cusId: null,
-      amount: null,
-      deptId: null,
-      bankId: null,
-      loantypeId: null,
-      loanstatusId: null
-    };
-    this.loanService.assignToPick(loan).pipe(first()).subscribe(() => {
-      this.getLoans();
-    });
+    if (window.confirm('Are sure you want to assign this loan to pickup department ?')) {
+      let loan: Loan = {
+        id: loanid,
+        userId: null,
+        cusId: null,
+        amount: null,
+        deptId: null,
+        bankId: null,
+        loantypeId: null,
+        loanstatusId: null
+      };
+      this.loanService.assignToPick(loan).pipe(first()).subscribe(() => {
+        this.getLoans();
+      });
+    }
   }
 
 }

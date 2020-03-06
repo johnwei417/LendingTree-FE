@@ -1,5 +1,6 @@
-<h3>All Loans</h3>
-
+<div class="w3-container w3-teal">
+  <h3>All Loans</h3>
+</div>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -9,6 +10,7 @@
     <th>Loan Amount</th>
     <th>Current Department</th>
     <th> Bank Name</th>
+    <th>Action</th>
   </tr>
   </thead>
   <tbody>
@@ -22,7 +24,7 @@
     <td>
       <button (click)="assign(loan.id)"
               *ngIf="loan.departmentName == 'ADMIN' && loan.loanStatusName != 'APPROVED' && loan.loanStatusName != 'REJECTED'"
-              class="btn btn-primary btn-block btn-lg">
+              class="button2">
         Assign To Pickup
       </button>
     </td>
@@ -30,5 +32,5 @@
   </tbody>
 </table>
 <a>
-  <button (click)="backClicked()"> < Back</button>
+  <button (click)="backClicked()" class="button"> < Back</button>
 </a>

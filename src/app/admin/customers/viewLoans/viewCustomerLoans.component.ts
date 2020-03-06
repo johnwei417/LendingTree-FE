@@ -5,7 +5,10 @@ import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 
 
-@Component({templateUrl: 'viewCustomerLoans.component.html'})
+@Component({
+  templateUrl: 'viewCustomerLoans.component.html',
+  styleUrls: ['viewCustomerLoans.component.css'],
+})
 export class ViewCustomerLoansComponent implements OnInit {
   currentUser: User;
   loans: Loan[];

@@ -1,4 +1,6 @@
-<h3>Customer List</h3>
+<div class="w3-container w3-teal">
+  <h3>Customer List</h3>
+</div>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -6,6 +8,9 @@
     <th>Last Name</th>
     <th>Email</th>
     <th>Salary</th>
+    <th>Edit/Update</th>
+    <th>View Loans</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -17,19 +22,19 @@
 
     <td>
       <a href="admin/viewCustomers/edit?id={{customer.id}}">
-        <button>Edit / Update</button>
+        <button class="button">Edit / Update</button>
       </a>
     </td>
 
     <td>
       <a href="admin/viewCustomers/loans?id={{customer.id}}">
-        <button>View Loans</button>
+        <button class="button3">View Loans</button>
       </a>
     </td>
 
     <td>
       <button (click)="deleteCustomer(customer.id)"
-              class="btn btn-primary btn-block btn-lg">
+              class="button2">
         Delete
       </button>
     </td>
@@ -37,5 +42,5 @@
   </tbody>
 </table>
 <a>
-  <button (click)="backClicked()"> < Back</button>
+  <button (click)="backClicked()" class="button"> < Back</button>
 </a>

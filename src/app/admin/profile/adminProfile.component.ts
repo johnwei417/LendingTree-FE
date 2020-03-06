@@ -7,7 +7,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 
 
-@Component({templateUrl: 'adminProfile.component.html'})
+@Component({
+  templateUrl: 'adminProfile.component.html',
+  styleUrls: ['adminProfile.component.css'],
+})
 export class AdminProfileComponent implements OnInit {
   currentUser: User;
   editForm: FormGroup;
@@ -70,25 +73,27 @@ export class AdminProfileComponent implements OnInit {
 
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.editForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to update your profile information ?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.editForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.userService.edit(this.editForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Update Admin successful', true);
+            this.router.navigate(['/']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
+
     }
-
-    this.loading = true;
-    this.userService.edit(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Update Admin successful', true);
-          this.router.navigate(['/']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 
 }

@@ -1,13 +1,16 @@
-<h3>Department List</h3>
+<div class="w3-container w3-teal">
+  <h3>Department List</h3>
+</div>
 <div></div>
 <a href="/admin/addDepartment">
-  <button>Add New Department ></button>
+  <button class="button3">Add New Department ></button>
 </a>
 <table class="table table-striped">
   <thead>
   <tr>
     <th>Department ID</th>
     <th>Department Name</th>
+    <th>Edit / Update</th>
   </tr>
   </thead>
   <tbody>
@@ -16,7 +19,7 @@
     <td>{{department.deptName}} </td>
     <td>
       <a href="admin/viewDepartments/edit?id={{department.id}}">
-        <button>Edit / Update</button>
+        <button class="button">Edit / Update</button>
       </a>
     </td>
 
@@ -26,5 +29,5 @@
 </table>
 
 <a>
-  <button (click)="backClicked()"> < Back</button>
+  <button (click)="backClicked()" class="button"> < Back</button>
 </a>

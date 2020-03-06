@@ -7,7 +7,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 
 
-@Component({templateUrl: 'customerProfile.component.html'})
+@Component({
+  templateUrl: 'customerProfile.component.html',
+  styleUrls: ['customerProfile.component.css']
+})
 export class CustomerProfileComponent implements OnInit {
   currentUser: User;
   editForm: FormGroup;

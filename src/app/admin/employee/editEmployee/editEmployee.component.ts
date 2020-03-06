@@ -7,7 +7,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
 
-@Component({templateUrl: 'editEmployee.component.html'})
+@Component({
+  templateUrl: 'editEmployee.component.html',
+  styleUrls: ['editEmployee.component.css'],
+})
 export class EditEmployeeComponent implements OnInit {
 
   departments: Department[];
@@ -89,25 +92,26 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.editForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to update this employee information?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.editForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.employeeService.edit(this.id, this.editForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Update Employee successful', true);
+            this.router.navigate(['/admin/viewEmployees']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
     }
-
-    this.loading = true;
-    this.employeeService.edit(this.id, this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Update Employee successful', true);
-          this.router.navigate(['/admin/viewEmployees']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 
 }

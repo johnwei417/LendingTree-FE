@@ -7,7 +7,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 
-@Component({templateUrl: 'editCustomer.component.html'})
+@Component({
+  templateUrl: 'editCustomer.component.html',
+  styleUrls: ['editCustomer.component.css'],
+})
 export class EditCustomerComponent implements OnInit {
 
 
@@ -73,25 +76,26 @@ export class EditCustomerComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.editForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to update this customer information ?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.editForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.customerService.edit(this.id, this.editForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Update Customer successful', true);
+            this.router.navigate(['/admin/viewCustomers']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
     }
-
-    this.loading = true;
-    this.customerService.edit(this.id, this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Update Customer successful', true);
-          this.router.navigate(['/admin/viewCustomers']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 
 }

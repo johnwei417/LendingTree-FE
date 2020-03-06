@@ -7,7 +7,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 
 
-@Component({templateUrl: 'employeeProfile.component.html'})
+@Component({
+  templateUrl: 'employeeProfile.component.html',
+  styleUrls: ['employeeProfile.component.css']
+})
 export class EmployeeProfileComponent implements OnInit {
   currentUser: User;
   editForm: FormGroup;
@@ -72,25 +75,26 @@ export class EmployeeProfileComponent implements OnInit {
 
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.editForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to update profile information ?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.editForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.employeeService.editForEmployee(this.editForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Update Employee successful', true);
+            this.router.navigate(['/']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
     }
-
-    this.loading = true;
-    this.employeeService.editForEmployee(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Update Employee successful', true);
-          this.router.navigate(['/']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 
 }

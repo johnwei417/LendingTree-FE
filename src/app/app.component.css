@@ -1,0 +1,9 @@
+body {
+  background: lightgrey;
+}
+
+div {
+  padding: 60px;
+  margin-right: -5px;
+  background: lightgrey;
+}

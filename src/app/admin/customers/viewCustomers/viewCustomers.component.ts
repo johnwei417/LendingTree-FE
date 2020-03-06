@@ -6,6 +6,7 @@ import {first} from 'rxjs/operators';
 
 @Component({
   templateUrl: 'viewCustomers.component.html',
+  styleUrls: ['viewCustomers.component.css']
 })
 
 export class ViewCustomersComponent implements OnInit {

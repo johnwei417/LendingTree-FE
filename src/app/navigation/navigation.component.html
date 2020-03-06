@@ -46,7 +46,7 @@
   <!--  <p>{{weather.weather[0].main}}</p>-->
 </div>
 
-<div *ngIf="(isCustomer$ | async) && (isLoggedIn$ | async)">
+<div *ngIf="(isCustomer$ | async) && (isLoggedIn$ | async)" class="navigation">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
       <img alt="" src="https://www.underconsideration.com/brandnew/archives/lendingtree_2018_logo_icon_detail.jpg"
@@ -87,7 +87,7 @@
   </nav>
 </div>
 
-<div *ngIf="(isEmployee$ | async) && (isLoggedIn$ | async)">
+<div *ngIf="(isEmployee$ | async) && (isLoggedIn$ | async)" class="navigation">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
       <img alt="" src="https://www.underconsideration.com/brandnew/archives/lendingtree_2018_logo_icon_detail.jpg"

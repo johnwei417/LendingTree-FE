@@ -6,7 +6,10 @@ import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
-@Component({templateUrl: 'addEmployee.component.html'})
+@Component({
+  templateUrl: 'addEmployee.component.html',
+  styleUrls: ['addEmployee.component.css'],
+})
 export class AddEmployeeComponent implements OnInit {
 
   departments: Department[];
@@ -79,25 +82,26 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.addForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to add this employee ?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.addForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.userService.registerEmployee(this.addForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Add New Employee successful', true);
+            this.router.navigate(['/admin/viewEmployees']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
     }
-
-    this.loading = true;
-    this.userService.registerEmployee(this.addForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Add New Employee successful', true);
-          this.router.navigate(['/admin/viewEmployees']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 
 }

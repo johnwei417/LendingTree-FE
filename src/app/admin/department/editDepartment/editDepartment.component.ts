@@ -7,7 +7,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
 
-@Component({templateUrl: 'editDepartment.component.html'})
+@Component({
+  templateUrl: 'editDepartment.component.html',
+  styleUrls: ['editDepartment.component.css'],
+})
 export class EditDepartmentComponent implements OnInit {
 
   department: Department;
@@ -66,25 +69,26 @@ export class EditDepartmentComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.editForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to update this department ?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.editForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.departmentService.editDepartment(this.id, this.editForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Update Department successful', true);
+            this.router.navigate(['/admin/viewDepartments']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
     }
-
-    this.loading = true;
-    this.departmentService.editDepartment(this.id, this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Update Department successful', true);
-          this.router.navigate(['/admin/viewDepartments']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 
 }

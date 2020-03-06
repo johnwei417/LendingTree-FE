@@ -5,6 +5,7 @@ import {AuthenticationService, DepartmentService} from '../../../_services';
 
 @Component({
   templateUrl: 'viewDepartments.component.html',
+  styleUrls: ['viewDepartments.component.css'],
 })
 
 export class ViewDepartmentsComponent implements OnInit {

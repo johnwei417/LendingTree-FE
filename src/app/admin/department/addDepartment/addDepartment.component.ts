@@ -6,7 +6,10 @@ import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 
-@Component({templateUrl: 'addDepartment.component.html'})
+@Component({
+  templateUrl: 'addDepartment.component.html',
+  styleUrls: ['addDepartment.component.css'],
+})
 export class AddDepartmentComponent implements OnInit {
   currentUser: User;
   addForm: FormGroup;
@@ -58,24 +61,25 @@ export class AddDepartmentComponent implements OnInit {
 
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.addForm.invalid) {
-      return;
+    if (window.confirm('Are sure you want to add this department ?')) {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.addForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.departmentService.addNewDept(this.addForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Add New Department successful', true);
+            this.router.navigate(['/admin/viewDepartments']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
     }
-
-    this.loading = true;
-    this.departmentService.addNewDept(this.addForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Add New Department successful', true);
-          this.router.navigate(['/admin/viewDepartments']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
   }
 }

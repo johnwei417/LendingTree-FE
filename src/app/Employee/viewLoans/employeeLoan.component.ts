@@ -4,7 +4,10 @@ import {AuthenticationService, LoanService, UserService} from '../../_services';
 import {first} from 'rxjs/operators';
 
 
-@Component({templateUrl: 'employeeLoan.component.html'})
+@Component({
+  templateUrl: 'employeeLoan.component.html',
+  styleUrls: ['employeeLoan.component.css']
+})
 export class EmployeeLoanComponent implements OnInit {
   loans: Loan[];
   currentUser: User;
@@ -56,28 +59,32 @@ export class EmployeeLoanComponent implements OnInit {
   }
 
   approve(loanid: number) {
-    const user = {
-      id: this.currentUser.id,
-      username: this.currentUser.username,
-      password: null,
-      firstname: null,
-      lastname: null,
-      email: null,
-      salary: null,
-      phone: null,
-      role: null,
-      address: null,
-      deptId: null,
-    };
-    this.loanService.assignToNextDept(user, loanid).pipe(first()).subscribe(() => {
-      this.getLoans();
-    });
+    if (window.confirm('Are sure you want to approve this loan ?')) {
+      const user = {
+        id: this.currentUser.id,
+        username: this.currentUser.username,
+        password: null,
+        firstname: null,
+        lastname: null,
+        email: null,
+        salary: null,
+        phone: null,
+        role: null,
+        address: null,
+        deptId: null,
+      };
+      this.loanService.assignToNextDept(user, loanid).pipe(first()).subscribe(() => {
+        this.getLoans();
+      });
+    }
   }
 
   reject(loanId: number) {
-    this.loanService.rejectLoan(loanId).pipe(first()).subscribe(() => {
-      this.getLoans();
-    });
+    if (window.confirm('Are sure you want to reject this loan ?')) {
+      this.loanService.rejectLoan(loanId).pipe(first()).subscribe(() => {
+        this.getLoans();
+      });
+    }
   }
 
 }
