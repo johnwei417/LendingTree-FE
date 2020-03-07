@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 import {Location} from '@angular/common';
-import {Employee, User} from '../../../_models';
-import {AuthenticationService, EmployeeService} from '../../../_services';
+import {Department, Employee, User} from '../../../_models';
+import {AuthenticationService, DepartmentService, EmployeeService} from '../../../_services';
 
 @Component({
   templateUrl: 'viewEmployee.component.html',
@@ -12,13 +12,17 @@ import {AuthenticationService, EmployeeService} from '../../../_services';
 export class ViewEmployeeComponent implements OnInit {
   currentUser: User;
   employees: Employee[] = [];
+  departments: Department[];
+  departmentName: string;
 
-  constructor(private location: Location, private employeeService: EmployeeService, private authenticationService: AuthenticationService) {
+  constructor(private location: Location, private employeeService: EmployeeService,
+              private authenticationService: AuthenticationService, private departmentService: DepartmentService) {
   }
 
 
   ngOnInit() {
     this.getEmployees();
+    this.getDepartments();
     this.authenticationService.loggedIn.next(true);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (this.currentUser.role[0] === 'ROLE_ADMIN') {
@@ -38,6 +42,10 @@ export class ViewEmployeeComponent implements OnInit {
       this.authenticationService.employee.next(false);
     }
 
+  }
+
+  getDepartments() {
+    this.departmentService.getAllDepartments().subscribe(data => this.departments = data['result']);
   }
 
   backClicked() {

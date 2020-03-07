@@ -5,6 +5,18 @@
 <a href="/admin/addEmployees">
   <button class="button3">Add New Employee ></button>
 </a>
+<br><br>
+<div class="form-group">
+  <label for="deptName">Search By Department</label>
+  <br>
+  <select [(ngModel)]="departmentName" class="form-control">
+    <option value="">Choose Department</option>
+    <option *ngFor="let department of departments" [value]="department.deptName">{{department.deptName}}
+    </option>
+  </select>
+</div>
+
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -18,7 +30,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employee of employees">
+  <tr *ngFor="let employee of employees | empFilter: departmentName">
     <td>{{employee.firstname}} </td>
     <td>{{employee.lastname}} </td>
     <td>{{employee.email}}</td>
