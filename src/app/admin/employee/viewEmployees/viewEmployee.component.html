@@ -16,6 +16,12 @@
   </select>
 </div>
 
+<div class="search">
+  <label for="search">Search</label>
+  <input [(ngModel)]="searchText" autocomplete="off" class="form-control" name="search" placeholder="&#61442; Search"
+         type="text">
+</div>
+<br>
 
 <table class="table table-striped">
   <thead>
@@ -30,7 +36,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employee of employees | empFilter: departmentName">
+  <tr *ngFor="let employee of employees | empFilter: departmentName | filter:searchText">
     <td>{{employee.firstname}} </td>
     <td>{{employee.lastname}} </td>
     <td>{{employee.email}}</td>

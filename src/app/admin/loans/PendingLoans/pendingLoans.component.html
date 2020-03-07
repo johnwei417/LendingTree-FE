@@ -1,7 +1,6 @@
 <div class="w3-container w3-teal">
   <h3>Pending Loan List</h3>
 </div>
-
 <br>
 <div class="form-group">
   <label for="deptName">Search By Department</label>
@@ -12,6 +11,13 @@
     </option>
   </select>
 </div>
+
+<div class="search">
+  <label for="deptName">Search</label>
+  <input [(ngModel)]="searchText" autocomplete="off" class="form-control" name="search" placeholder="&#61442; Search"
+         type="text">
+</div>
+<br>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -25,7 +31,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let loan of loans | pendingLoansByDepartment: departmentName">
+  <tr *ngFor="let loan of loans | pendingLoansByDepartment: departmentName | filter:searchText">
     <td>{{loan.username}} </td>
     <td>{{loan.loanTypeName}} </td>
     <td>{{loan.loanStatusName}}</td>

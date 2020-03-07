@@ -11,6 +11,7 @@ import {AuthenticationService, LoanService} from '../../../_services';
 export class RejectedLoansComponent implements OnInit {
   currentUser: User;
   loans: Loan[];
+  searchText;
 
   constructor(private location: Location, private loanService: LoanService, private authenticationService: AuthenticationService) {
 

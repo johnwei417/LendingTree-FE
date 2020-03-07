@@ -14,6 +14,7 @@ export class LoanManageComponent implements OnInit {
   loans: Loan[];
   departments: Department[];
   departmentName: string;
+  searchText;
 
   constructor(private location: Location, private loanService: LoanService, private departmentService: DepartmentService,
               private authenticationService: AuthenticationService) {

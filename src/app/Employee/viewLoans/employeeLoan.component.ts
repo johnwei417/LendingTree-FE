@@ -13,6 +13,7 @@ export class EmployeeLoanComponent implements OnInit {
   currentUser: User;
   user: User;
   customer: Customer;
+  searchText;
 
   constructor(private loanService: LoanService, private userService: UserService,
               private employeeService: EmployeeService,

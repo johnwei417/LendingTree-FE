@@ -14,6 +14,7 @@ export class ViewEmployeeComponent implements OnInit {
   employees: Employee[] = [];
   departments: Department[];
   departmentName: string;
+  searchText;
 
   constructor(private location: Location, private employeeService: EmployeeService,
               private authenticationService: AuthenticationService, private departmentService: DepartmentService) {

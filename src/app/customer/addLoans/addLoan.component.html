@@ -9,7 +9,7 @@
     <label for="amount">Loan Amount</label>
     <input [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" class="form-control"
            formControlName="amount"
-           type="text"/>
+           style="width:30%;" type="text"/>
     <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
       <div *ngIf="f.amount.errors.required">Amount is required</div>
     </div>
@@ -34,8 +34,7 @@
       </option>
     </select>
   </div>
-  <br>
-  <br>
+
   <div class="form-group">
     <button [disabled]="loading" class="button3">Submit</button>
     <img *ngIf="loading"

@@ -12,6 +12,7 @@ import {first} from 'rxjs/operators';
 export class ViewCustomersComponent implements OnInit {
   currentUser: User;
   customers: Customer[] = [];
+  searchText;
 
   constructor(private location: Location, private customerService: CustomerService, private authenticationService: AuthenticationService) {
   }

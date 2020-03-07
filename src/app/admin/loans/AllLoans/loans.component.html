@@ -12,6 +12,12 @@
   </select>
 </div>
 
+<div class="search">
+  <label for="deptName">Search</label>
+  <input [(ngModel)]="searchText" autocomplete="off" class="form-control" name="search" placeholder="&#61442; Search"
+         type="text">
+</div>
+<br>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -25,7 +31,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let loan of loans | allLoansByDepartment: departmentName">
+  <tr *ngFor="let loan of loans | allLoansByDepartment: departmentName | filter:searchText">
     <td>{{loan.username}} </td>
     <td>{{loan.loanTypeName}} </td>
     <td>{{loan.loanStatusName}}</td>

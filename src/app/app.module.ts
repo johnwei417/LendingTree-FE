@@ -44,7 +44,7 @@ import {EmpFilterPipe} from './admin/employee/viewEmployees/emp-filter.pipe';
 import {EmployeeViewCustomerComponent} from './Employee/viewCustomer';
 import {AllLoansByDepartmentFilterPipe} from './admin/loans/AllLoans/allLoansByDepartment-filter.pipe';
 import {PendingLoansByDepartmentFilterPipe} from './admin/loans/PendingLoans/pendingLoansByDepartment-filter.pipe';
-
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -53,6 +53,7 @@ import {PendingLoansByDepartmentFilterPipe} from './admin/loans/PendingLoans/pen
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
+    Ng2SearchPipeModule,
     routing
   ],
   declarations: [
