@@ -3,7 +3,8 @@ body {
 }
 
 div {
-  padding: 60px;
+  padding-top: 60px;
+  padding-right: 120px;
   margin-right: -5px;
   background: lightgrey;
 }
