@@ -1,6 +1,17 @@
 <div class="w3-container w3-teal">
   <h3>All Loans</h3>
 </div>
+<br>
+<div class="form-group">
+  <label for="deptName">Search By Department</label>
+  <br>
+  <select [(ngModel)]="departmentName" class="form-control">
+    <option value="">Choose Department</option>
+    <option *ngFor="let department of departments" [value]="department.deptName">{{department.deptName}}
+    </option>
+  </select>
+</div>
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -14,7 +25,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let loan of loans">
+  <tr *ngFor="let loan of loans | allLoansByDepartment: departmentName">
     <td>{{loan.username}} </td>
     <td>{{loan.loanTypeName}} </td>
     <td>{{loan.loanStatusName}}</td>

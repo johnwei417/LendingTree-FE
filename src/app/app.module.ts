@@ -42,6 +42,8 @@ import {AddDepartmentComponent} from './admin/department/addDepartment/addDepart
 import {EditDepartmentComponent} from './admin/department/editDepartment';
 import {EmpFilterPipe} from './admin/employee/viewEmployees/emp-filter.pipe';
 import {EmployeeViewCustomerComponent} from './Employee/viewCustomer';
+import {AllLoansByDepartmentFilterPipe} from './admin/loans/AllLoans/allLoansByDepartment-filter.pipe';
+import {PendingLoansByDepartmentFilterPipe} from './admin/loans/PendingLoans/pendingLoansByDepartment-filter.pipe';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import {EmployeeViewCustomerComponent} from './Employee/viewCustomer';
     EditDepartmentComponent,
     EmpFilterPipe,
     EmployeeViewCustomerComponent,
+    AllLoansByDepartmentFilterPipe,
+    PendingLoansByDepartmentFilterPipe,
 
   ],
   providers: [
