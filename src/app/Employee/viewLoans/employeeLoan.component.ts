@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Loan, User} from '../../_models';
-import {AuthenticationService, LoanService, UserService} from '../../_services';
+import {Customer, Loan, User} from '../../_models';
+import {AuthenticationService, EmployeeService, LoanService, UserService} from '../../_services';
 import {first} from 'rxjs/operators';
 
 
@@ -12,8 +12,11 @@ export class EmployeeLoanComponent implements OnInit {
   loans: Loan[];
   currentUser: User;
   user: User;
+  customer: Customer;
 
-  constructor(private loanService: LoanService, private userService: UserService, private authenticationService: AuthenticationService) {
+  constructor(private loanService: LoanService, private userService: UserService,
+              private employeeService: EmployeeService,
+              private authenticationService: AuthenticationService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -40,6 +43,9 @@ export class EmployeeLoanComponent implements OnInit {
     this.getLoans();
   }
 
+  getCustomer(username: string) {
+    this.employeeService.getCustomer(username).subscribe(data => this.customer = data['result']);
+  }
 
   getLoans() {
     const user = {

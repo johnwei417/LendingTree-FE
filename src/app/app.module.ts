@@ -41,6 +41,7 @@ import {ViewDepartmentsComponent} from './admin/department/viewDepartments';
 import {AddDepartmentComponent} from './admin/department/addDepartment/addDepartment.component';
 import {EditDepartmentComponent} from './admin/department/editDepartment';
 import {EmpFilterPipe} from './admin/employee/viewEmployees/emp-filter.pipe';
+import {EmployeeViewCustomerComponent} from './Employee/viewCustomer';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import {EmpFilterPipe} from './admin/employee/viewEmployees/emp-filter.pipe';
     AddDepartmentComponent,
     EditDepartmentComponent,
     EmpFilterPipe,
+    EmployeeViewCustomerComponent,
 
   ],
   providers: [

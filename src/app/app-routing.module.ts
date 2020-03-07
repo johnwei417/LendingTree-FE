@@ -27,6 +27,7 @@ import {EmployeeProfileComponent} from './Employee/profile/employeeProfile.compo
 import {ViewDepartmentsComponent} from './admin/department/viewDepartments';
 import {AddDepartmentComponent} from './admin/department/addDepartment/addDepartment.component';
 import {EditDepartmentComponent} from './admin/department/editDepartment';
+import {EmployeeViewCustomerComponent} from './Employee/viewCustomer';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
   {path: 'admin/viewDepartments', component: ViewDepartmentsComponent, canActivate: [AuthGuard]},
   {path: 'admin/addDepartment', component: AddDepartmentComponent, canActivate: [AuthGuard]},
   {path: 'admin/viewDepartments/edit', component: EditDepartmentComponent, canActivate: [AuthGuard]},
+  {path: 'employee/viewCustomer', component: EmployeeViewCustomerComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

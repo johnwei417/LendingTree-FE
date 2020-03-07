@@ -10,6 +10,7 @@
     <th>Loan Amount</th>
     <th>Current Department</th>
     <th> Bank Name</th>
+    <th> Details</th>
     <th> Approve</th>
     <th> Reject</th>
   </tr>
@@ -22,6 +23,11 @@
     <td>{{loan.amount}}</td>
     <td>{{loan.departmentName}}</td>
     <td>{{loan.bankName}}</td>
+    <td>
+      <a href="employee/viewCustomer?username={{loan.username}}">
+        <button class="button3">Details</button>
+      </a>
+    </td>
     <td>
       <button (click)="approve(loan.id)" class="button">
         Approve

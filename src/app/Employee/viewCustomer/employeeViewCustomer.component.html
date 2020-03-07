@@ -1,0 +1,24 @@
+<div class="w3-container w3-teal">
+  <h3>Customer Detail</h3>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Salary</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{customer.firstname}} </td>
+    <td>{{customer.lastname}} </td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.salary}}</td>
+  </tr>
+  </tbody>
+</table>
+<a>
+  <button (click)="backClicked()" class="button"> < Back</button>
+</a>
